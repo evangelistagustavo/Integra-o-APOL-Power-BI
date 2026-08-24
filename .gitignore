@@ -1,0 +1,18 @@
+# Credenciais
+.env
+
+# Python
+__pycache__/
+*.pyc
+
+# Banco de dados local
+*.db
+
+# Logs
+logs/
+
+# Arquivos CSV gerados
+*.csv
+
+# Respostas JSON geradas pela API
+resposta_processos_unificados.json
