@@ -133,9 +133,9 @@ projeto2/
 Arquivos como ```.env```, ```apol.db``` e logs locais devem permanecer fora do versionamento público por meio do ```.gitignore```.
 
 ## Principais componentes
-```
-apol_client.py
-```
+
+```apol_client.py```
+
 Responsável pela comunicação com o Webservice do APOL.
 
 Principais responsabilidades:
@@ -146,9 +146,9 @@ Principais responsabilidades:
 - tratamento de erros HTTP;
 - validação das respostas;
 - comunicação com os serviços disponibilizados pelo APOL.
-```
-apol_transform.py
-```
+
+```apol_transform.py```
+
 Responsável pela transformação dos dados recebidos.
 
 Os dados são organizados em estruturas adequadas para persistência no banco de dados.
@@ -157,9 +157,9 @@ Principais entidades:
 
 - processos;
 - processos e envolvidos.
-```
-apol_sync.py
-```
+
+```apol_sync.py```
+
 Responsável pela preparação dos identificadores necessários para sincronização com o APOL.
 
 São tratados diferentes grupos de processos:
@@ -168,9 +168,9 @@ São tratados diferentes grupos de processos:
 - marcas internacionais;
 - patentes;
 - patentes internacionais.
-```
-apol_database.py
-```
+
+```apol_database.py```
+
 Responsável pelas operações de persistência no SQLite.
 
 Entre suas responsabilidades estão:
@@ -183,21 +183,21 @@ Entre suas responsabilidades estão:
 - atualização de despachos;
 - atualização de ocorrências;
 - atualização de providências.
-```
-apol_views.py
-```
+
+```apol_views.py```
+
 Responsável pela criação das views utilizadas para facilitar o consumo dos dados pelo Power BI.
 
 Views principais:
-
+```
 vw_processos
 vw_processos_envolvidos
 vw_despachos
 vw_ocorrencias
 vw_providencias
 ```
-atualizar_apol.py
-```
+```atualizar_apol.py```
+
 É o principal script da automação.
 
 Executa o fluxo de atualização:
@@ -215,9 +215,9 @@ Atualizar detalhes
 Registrar execução
 ```
 O processo utiliza UPSERT para atualizar registros existentes e inserir novos registros.
-```
-powerbi_apol.py
-```
+
+```powerbi_apol.py```
+
 Script responsável pela disponibilização das diferentes estruturas de dados para consumo pelo Power BI. São carregadas estruturas relacionadas a:
 ```
 df_processos
