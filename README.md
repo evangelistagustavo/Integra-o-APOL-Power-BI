@@ -363,9 +363,9 @@ A análise considera os eventos relevantes para identificar o resultado final do
 Data de depósito
         ↓
 Data da decisão
-
-⏱️ Timeline dos Processos
 ```
+## Timeline dos Processos
+
 Como funcionalidade adicional, foi criada uma tabela consolidada de eventos denominada:
 ```
 Timeline
