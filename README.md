@@ -369,7 +369,9 @@ Data da decisão
 Como funcionalidade adicional, foi criada uma tabela consolidada de eventos denominada:
 ```
 Timeline
+```
 Ela reúne diferentes tipos de movimentações:
+```
 Depósito
 Despacho
 Ocorrência
