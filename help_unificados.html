@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>GET api/externo/processosunificados/ObterProcessosUnificados</title>
+    
+</head>
+<body>
+    
+
+<link type="text/css" href="/webservices/Apol/Areas/HelpPage/HelpPage.css" rel="stylesheet" />
+<div id="body" class="help-page">
+    <section class="featured">
+        <div class="content-wrapper">
+            <p>
+                <a href="/webservices/Apol/Help">Help Page Home</a>
+            </p>
+        </div>
+    </section>
+    <section class="content-wrapper main-content clear-fix">
+        
+<h1>GET api/externo/processosunificados/ObterProcessosUnificados</h1>
+<div>
+    <p>Obt&#233;m processos novos ou que sofreram altera&#231;&#245;es</p>
+
+    <h2>Request Information</h2>
+
+    <h3>URI Parameters</h3>
+        <p>None.</p>
+
+
+
+    <h3>Body Parameters</h3>
+
+    <p></p>
+
+        <p>None.</p>
+
+
+    <h2>Response Information</h2>
+
+    <h3>Resource Description</h3>
+
+    <p>Todos os detalhes do processo</p>
+
+<a href="/webservices/Apol/Help/ResourceModel?modelName=ProcessoUnificadoResponse">ProcessoUnificadoResponse</a>    <table class="help-page-table">
+        <thead>
+            <tr><th>Name</th><th>Description</th><th>Type</th><th>Additional information</th></tr>
+        </thead>
+        <tbody>
+                <tr>
+                    <td class="parameter-name">ProcessosMarca</td>
+                    <td class="parameter-documentation">
+                        <p></p>
+                    </td>
+                    <td class="parameter-type">
+                                Collection of <a href="/webservices/Apol/Help/ResourceModel?modelName=ProcessoUnificadoMarcaDTO">ProcessoUnificadoMarcaDTO</a>
+
+                    </td>
+                    <td class="parameter-annotations">
+                            <p>None.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="parameter-name">ProcessosMarcaInternacional</td>
+                    <td class="parameter-documentation">
+                        <p></p>
+                    </td>
+                    <td class="parameter-type">
+                                Collection of <a href="/webservices/Apol/Help/ResourceModel?modelName=ProcessoUnificadoMarcaInternacionalDTO">ProcessoUnificadoMarcaInternacionalDTO</a>
+
+                    </td>
+                    <td class="parameter-annotations">
+                            <p>None.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="parameter-name">ProcessosPatente</td>
+                    <td class="parameter-documentation">
+                        <p></p>
+                    </td>
+                    <td class="parameter-type">
+                                Collection of <a href="/webservices/Apol/Help/ResourceModel?modelName=ProcessoUnificadoPatenteDTO">ProcessoUnificadoPatenteDTO</a>
+
+                    </td>
+                    <td class="parameter-annotations">
+                            <p>None.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="parameter-name">ProcessosPatenteInternacional</td>
+                    <td class="parameter-documentation">
+                        <p></p>
+                    </td>
+                    <td class="parameter-type">
+                                Collection of <a href="/webservices/Apol/Help/ResourceModel?modelName=ProcessoUnificadoPatenteInternacionalDTO">ProcessoUnificadoPatenteInternacionalDTO</a>
+
+                    </td>
+                    <td class="parameter-annotations">
+                            <p>None.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="parameter-name">Quantidade</td>
+                    <td class="parameter-documentation">
+                        <p></p>
+                    </td>
+                    <td class="parameter-type">
+                        string
+                    </td>
+                    <td class="parameter-annotations">
+                            <p>None.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="parameter-name">Message</td>
+                    <td class="parameter-documentation">
+                        <p></p>
+                    </td>
+                    <td class="parameter-type">
+                        string
+                    </td>
+                    <td class="parameter-annotations">
+                            <p>None.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="parameter-name">Autorizado</td>
+                    <td class="parameter-documentation">
+                        <p></p>
+                    </td>
+                    <td class="parameter-type">
+                        boolean
+                    </td>
+                    <td class="parameter-annotations">
+                            <p>None.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="parameter-name">TempoLevado</td>
+                    <td class="parameter-documentation">
+                        <p></p>
+                    </td>
+                    <td class="parameter-type">
+                        time interval
+                    </td>
+                    <td class="parameter-annotations">
+                            <p>None.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="parameter-name">Sucesso</td>
+                    <td class="parameter-documentation">
+                        <p></p>
+                    </td>
+                    <td class="parameter-type">
+                        boolean
+                    </td>
+                    <td class="parameter-annotations">
+                            <p>None.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="parameter-name">Mensagens</td>
+                    <td class="parameter-documentation">
+                        <p></p>
+                    </td>
+                    <td class="parameter-type">
+                                Collection of string
+
+                    </td>
+                    <td class="parameter-annotations">
+                            <p>None.</p>
+                    </td>
+                </tr>
+        </tbody>
+    </table>
+
+
+        <h3>Response Formats</h3>
+
+<div>
+        <h4 class="sample-header">application/json, text/json</h4>
+        <div class="sample-content">
+            <span><b>Sample:</b></span>
+<pre class="wrapped">
+{
+  &quot;Mensagens&quot;: [
+    &quot;sample string 1&quot;,
+    &quot;sample string 2&quot;
+  ],
+  &quot;ProcessosMarca&quot;: [
+    {
+      &quot;Id&quot;: 1,
+      &quot;NumeroDoProcesso&quot;: &quot;sample string 2&quot;,
+      &quot;Terceiro&quot;: true,
+      &quot;Natureza&quot;: &quot;sample string 4&quot;,
+      &quot;Especificacao&quot;: &quot;sample string 5&quot;,
+      &quot;Marca&quot;: &quot;sample string 6&quot;,
+      &quot;Classe&quot;: &quot;sample string 7&quot;,
+      &quot;Situacao&quot;: &quot;sample string 8&quot;,
+      &quot;Titular&quot;: &quot;sample string 9&quot;,
+      &quot;Pasta&quot;: &quot;sample string 10&quot;,
+      &quot;Referencia&quot;: &quot;sample string 11&quot;,
+      &quot;PaisDeOrigem&quot;: &quot;sample string 12&quot;,
+      &quot;Status&quot;: &quot;sample string 13&quot;,
+      &quot;Envolvidos&quot;: [
+        {
+          &quot;Id&quot;: 1,
+          &quot;TipoDoEnvolvidoNome&quot;: &quot;sample string 1&quot;
+        },
+        {
+          &quot;Id&quot;: 1,
+          &quot;TipoDoEnvolvidoNome&quot;: &quot;sample string 1&quot;
+        }
+      ]
+    },
+    {
+      &quot;Id&quot;: 1,
+      &quot;NumeroDoProcesso&quot;: &quot;sample string 2&quot;,
+      &quot;Terceiro&quot;: true,
+      &quot;Natureza&quot;: &quot;sample string 4&quot;,
+      &quot;Especificacao&quot;: &quot;sample string 5&quot;,
+      &quot;Marca&quot;: &quot;sample string 6&quot;,
+      &quot;Classe&quot;: &quot;sample string 7&quot;,
+      &quot;Situacao&quot;: &quot;sample string 8&quot;,
+      &quot;Titular&quot;: &quot;sample string 9&quot;,
+      &quot;Pasta&quot;: &quot;sample string 10&quot;,
+      &quot;Referencia&quot;: &quot;sample string 11&quot;,
+      &quot;PaisDeOrigem&quot;: &quot;sample string 12&quot;,
+      &quot;Status&quot;: &quot;sample string 13&quot;,
+      &quot;Envolvidos&quot;: [
+        {
+          &quot;Id&quot;: 1,
+          &quot;TipoDoEnvolvidoNome&quot;: &quot;sample string 1&quot;
+        },
+        {
+          &quot;Id&quot;: 1,
+          &quot;TipoDoEnvolvidoNome&quot;: &quot;sample string 1&quot;
+        }
+      ]
+    }
+  ],
+  &quot;ProcessosMarcaInternacional&quot;: [
+    {
+      &quot;Id&quot;: 1,
+      &quot;Numero&quot;: &quot;sample string 2&quot;,
+      &quot;Terceiro&quot;: true,
+      &quot;Natureza&quot;: &quot;sample string 4&quot;,
+      &quot;Especificacao&quot;: &quot;sample string 5&quot;,
+      &quot;Marca&quot;: &quot;sample string 6&quot;,
+      &quot;Classe&quot;: &quot;sample string 7&quot;,
+      &quot;ClasseInternacional&quot;: &quot;sample string 8&quot;,
+      &quot;Pasta&quot;: &quot;sample string 9&quot;,
+      &quot;Referencia&quot;: &quot;sample string 10&quot;,
+      &quot;PaisDeposito&quot;: &quot;sample string 11&quot;,
+      &quot;Status&quot;: &quot;sample string 12&quot;,
+      &quot;Envolvidos&quot;: [
+        {
+          &quot;Id&quot;: 1,
+          &quot;TipoDoEnvolvidoNome&quot;: &quot;sample string 1&quot;
+        },
+        {
+          &quot;Id&quot;: 1,
+          &quot;TipoDoEnvolvidoNome&quot;: &quot;sample string 1&quot;
+        }
+      ]
+    },
+    {
+      &quot;Id&quot;: 1,
+      &quot;Numero&quot;: &quot;sample string 2&quot;,
+      &quot;Terceiro&quot;: true,
+      &quot;Natureza&quot;: &quot;sample string 4&quot;,
+      &quot;Especificacao&quot;: &quot;sample string 5&quot;,
+      &quot;Marca&quot;: &quot;sample string 6&quot;,
+      &quot;Classe&quot;: &quot;sample string 7&quot;,
+      &quot;ClasseInternacional&quot;: &quot;sample string 8&quot;,
+      &quot;Pasta&quot;: &quot;sample string 9&quot;,
+      &quot;Referencia&quot;: &quot;sample string 10&quot;,
+      &quot;PaisDeposito&quot;: &quot;sample string 11&quot;,
+      &quot;Status&quot;: &quot;sample string 12&quot;,
+      &quot;Envolvidos&quot;: [
+        {
+          &quot;Id&quot;: 1,
+          &quot;TipoDoEnvolvidoNome&quot;: &quot;sample string 1&quot;
+        },
+        {
+          &quot;Id&quot;: 1,
+          &quot;TipoDoEnvolvidoNome&quot;: &quot;sample string 1&quot;
+        }
+      ]
+    }
+  ],
+  &quot;ProcessosPatente&quot;: [
+    {
+      &quot;Id&quot;: 1,
+      &quot;NumeroDoProcesso&quot;: &quot;sample string 2&quot;,
+      &quot;Natureza&quot;: &quot;sample string 3&quot;,
+      &quot;Terceiro&quot;: true,
+      &quot;Titulo&quot;: &quot;sample string 5&quot;,
+      &quot;Situacao&quot;: &quot;sample string 6&quot;,
+      &quot;Titular&quot;: &quot;sample string 7&quot;,
+      &quot;Pasta&quot;: &quot;sample string 8&quot;,
+      &quot;Referencia&quot;: &quot;sample string 9&quot;,
+      &quot;Status&quot;: &quot;sample string 10&quot;,
+      &quot;Envolvidos&quot;: [
+        {
+          &quot;Id&quot;: 1,
+          &quot;TipoDoEnvolvidoNome&quot;: &quot;sample string 1&quot;
+        },
+        {
+          &quot;Id&quot;: 1,
+          &quot;TipoDoEnvolvidoNome&quot;: &quot;sample string 1&quot;
+        }
+      ]
+    },
+    {
+      &quot;Id&quot;: 1,
+      &quot;NumeroDoProcesso&quot;: &quot;sample string 2&quot;,
+      &quot;Natureza&quot;: &quot;sample string 3&quot;,
+      &quot;Terceiro&quot;: true,
+      &quot;Titulo&quot;: &quot;sample string 5&quot;,
+      &quot;Situacao&quot;: &quot;sample string 6&quot;,
+      &quot;Titular&quot;: &quot;sample string 7&quot;,
+      &quot;Pasta&quot;: &quot;sample string 8&quot;,
+      &quot;Referencia&quot;: &quot;sample string 9&quot;,
+      &quot;Status&quot;: &quot;sample string 10&quot;,
+      &quot;Envolvidos&quot;: [
+        {
+          &quot;Id&quot;: 1,
+          &quot;TipoDoEnvolvidoNome&quot;: &quot;sample string 1&quot;
+        },
+        {
+          &quot;Id&quot;: 1,
+          &quot;TipoDoEnvolvidoNome&quot;: &quot;sample string 1&quot;
+        }
+      ]
+    }
+  ],
+  &quot;ProcessosPatenteInternacional&quot;: [
+    {
+      &quot;Id&quot;: 1,
+      &quot;Numero&quot;: &quot;sample string 2&quot;,
+      &quot;Terceiro&quot;: true,
+      &quot;Natureza&quot;: &quot;sample string 4&quot;,
+      &quot;TituloPatente&quot;: &quot;sample string 5&quot;,
+      &quot;PaisOrigem&quot;: &quot;sample string 6&quot;,
+      &quot;Pasta&quot;: &quot;sample string 7&quot;,
+      &quot;Referencia&quot;: &quot;sample string 8&quot;,
+      &quot;PaisDeposito&quot;: &quot;sample string 9&quot;,
+      &quot;Status&quot;: &quot;sample string 10&quot;,
+      &quot;Envolvidos&quot;: [
+        {
+          &quot;Id&quot;: 1,
+          &quot;TipoDoEnvolvidoNome&quot;: &quot;sample string 1&quot;
+        },
+        {
+          &quot;Id&quot;: 1,
+          &quot;TipoDoEnvolvidoNome&quot;: &quot;sample string 1&quot;
+        }
+      ]
+    },
+    {
+      &quot;Id&quot;: 1,
+      &quot;Numero&quot;: &quot;sample string 2&quot;,
+      &quot;Terceiro&quot;: true,
+      &quot;Natureza&quot;: &quot;sample string 4&quot;,
+      &quot;TituloPatente&quot;: &quot;sample string 5&quot;,
+      &quot;PaisOrigem&quot;: &quot;sample string 6&quot;,
+      &quot;Pasta&quot;: &quot;sample string 7&quot;,
+      &quot;Referencia&quot;: &quot;sample string 8&quot;,
+      &quot;PaisDeposito&quot;: &quot;sample string 9&quot;,
+      &quot;Status&quot;: &quot;sample string 10&quot;,
+      &quot;Envolvidos&quot;: [
+        {
+          &quot;Id&quot;: 1,
+          &quot;TipoDoEnvolvidoNome&quot;: &quot;sample string 1&quot;
+        },
+        {
+          &quot;Id&quot;: 1,
+          &quot;TipoDoEnvolvidoNome&quot;: &quot;sample string 1&quot;
+        }
+      ]
+    }
+  ],
+  &quot;Quantidade&quot;: &quot;sample string 1&quot;,
+  &quot;Message&quot;: &quot;sample string 1&quot;,
+  &quot;Autorizado&quot;: true,
+  &quot;TempoLevado&quot;: &quot;00:00:00.1234567&quot;,
+  &quot;Sucesso&quot;: false
+}
+</pre>
+        </div>
+        <h4 class="sample-header">multipart/form-data</h4>
+        <div class="sample-content">
+            <span><b>Sample:</b></span>
+<pre class="wrapped">
+{&quot;Mensagens&quot;:[&quot;sample string 1&quot;,&quot;sample string 2&quot;],&quot;ProcessosMarca&quot;:[{&quot;Id&quot;:1,&quot;NumeroDoProcesso&quot;:&quot;sample string 2&quot;,&quot;Terceiro&quot;:true,&quot;Natureza&quot;:&quot;sample string 4&quot;,&quot;Especificacao&quot;:&quot;sample string 5&quot;,&quot;Marca&quot;:&quot;sample string 6&quot;,&quot;Classe&quot;:&quot;sample string 7&quot;,&quot;Situacao&quot;:&quot;sample string 8&quot;,&quot;Titular&quot;:&quot;sample string 9&quot;,&quot;Pasta&quot;:&quot;sample string 10&quot;,&quot;Referencia&quot;:&quot;sample string 11&quot;,&quot;PaisDeOrigem&quot;:&quot;sample string 12&quot;,&quot;Status&quot;:&quot;sample string 13&quot;,&quot;Envolvidos&quot;:[{&quot;Id&quot;:1,&quot;TipoDoEnvolvidoNome&quot;:&quot;sample string 1&quot;},{&quot;Id&quot;:1,&quot;TipoDoEnvolvidoNome&quot;:&quot;sample string 1&quot;}]},{&quot;Id&quot;:1,&quot;NumeroDoProcesso&quot;:&quot;sample string 2&quot;,&quot;Terceiro&quot;:true,&quot;Natureza&quot;:&quot;sample string 4&quot;,&quot;Especificacao&quot;:&quot;sample string 5&quot;,&quot;Marca&quot;:&quot;sample string 6&quot;,&quot;Classe&quot;:&quot;sample string 7&quot;,&quot;Situacao&quot;:&quot;sample string 8&quot;,&quot;Titular&quot;:&quot;sample string 9&quot;,&quot;Pasta&quot;:&quot;sample string 10&quot;,&quot;Referencia&quot;:&quot;sample string 11&quot;,&quot;PaisDeOrigem&quot;:&quot;sample string 12&quot;,&quot;Status&quot;:&quot;sample string 13&quot;,&quot;Envolvidos&quot;:[{&quot;Id&quot;:1,&quot;TipoDoEnvolvidoNome&quot;:&quot;sample string 1&quot;},{&quot;Id&quot;:1,&quot;TipoDoEnvolvidoNome&quot;:&quot;sample string 1&quot;}]}],&quot;ProcessosMarcaInternacional&quot;:[{&quot;Id&quot;:1,&quot;Numero&quot;:&quot;sample string 2&quot;,&quot;Terceiro&quot;:true,&quot;Natureza&quot;:&quot;sample string 4&quot;,&quot;Especificacao&quot;:&quot;sample string 5&quot;,&quot;Marca&quot;:&quot;sample string 6&quot;,&quot;Classe&quot;:&quot;sample string 7&quot;,&quot;ClasseInternacional&quot;:&quot;sample string 8&quot;,&quot;Pasta&quot;:&quot;sample string 9&quot;,&quot;Referencia&quot;:&quot;sample string 10&quot;,&quot;PaisDeposito&quot;:&quot;sample string 11&quot;,&quot;Status&quot;:&quot;sample string 12&quot;,&quot;Envolvidos&quot;:[{&quot;Id&quot;:1,&quot;TipoDoEnvolvidoNome&quot;:&quot;sample string 1&quot;},{&quot;Id&quot;:1,&quot;TipoDoEnvolvidoNome&quot;:&quot;sample string 1&quot;}]},{&quot;Id&quot;:1,&quot;Numero&quot;:&quot;sample string 2&quot;,&quot;Terceiro&quot;:true,&quot;Natureza&quot;:&quot;sample string 4&quot;,&quot;Especificacao&quot;:&quot;sample string 5&quot;,&quot;Marca&quot;:&quot;sample string 6&quot;,&quot;Classe&quot;:&quot;sample string 7&quot;,&quot;ClasseInternacional&quot;:&quot;sample string 8&quot;,&quot;Pasta&quot;:&quot;sample string 9&quot;,&quot;Referencia&quot;:&quot;sample string 10&quot;,&quot;PaisDeposito&quot;:&quot;sample string 11&quot;,&quot;Status&quot;:&quot;sample string 12&quot;,&quot;Envolvidos&quot;:[{&quot;Id&quot;:1,&quot;TipoDoEnvolvidoNome&quot;:&quot;sample string 1&quot;},{&quot;Id&quot;:1,&quot;TipoDoEnvolvidoNome&quot;:&quot;sample string 1&quot;}]}],&quot;ProcessosPatente&quot;:[{&quot;Id&quot;:1,&quot;NumeroDoProcesso&quot;:&quot;sample string 2&quot;,&quot;Natureza&quot;:&quot;sample string 3&quot;,&quot;Terceiro&quot;:true,&quot;Titulo&quot;:&quot;sample string 5&quot;,&quot;Situacao&quot;:&quot;sample string 6&quot;,&quot;Titular&quot;:&quot;sample string 7&quot;,&quot;Pasta&quot;:&quot;sample string 8&quot;,&quot;Referencia&quot;:&quot;sample string 9&quot;,&quot;Status&quot;:&quot;sample string 10&quot;,&quot;Envolvidos&quot;:[{&quot;Id&quot;:1,&quot;TipoDoEnvolvidoNome&quot;:&quot;sample string 1&quot;},{&quot;Id&quot;:1,&quot;TipoDoEnvolvidoNome&quot;:&quot;sample string 1&quot;}]},{&quot;Id&quot;:1,&quot;NumeroDoProcesso&quot;:&quot;sample string 2&quot;,&quot;Natureza&quot;:&quot;sample string 3&quot;,&quot;Terceiro&quot;:true,&quot;Titulo&quot;:&quot;sample string 5&quot;,&quot;Situacao&quot;:&quot;sample string 6&quot;,&quot;Titular&quot;:&quot;sample string 7&quot;,&quot;Pasta&quot;:&quot;sample string 8&quot;,&quot;Referencia&quot;:&quot;sample string 9&quot;,&quot;Status&quot;:&quot;sample string 10&quot;,&quot;Envolvidos&quot;:[{&quot;Id&quot;:1,&quot;TipoDoEnvolvidoNome&quot;:&quot;sample string 1&quot;},{&quot;Id&quot;:1,&quot;TipoDoEnvolvidoNome&quot;:&quot;sample string 1&quot;}]}],&quot;ProcessosPatenteInternacional&quot;:[{&quot;Id&quot;:1,&quot;Numero&quot;:&quot;sample string 2&quot;,&quot;Terceiro&quot;:true,&quot;Natureza&quot;:&quot;sample string 4&quot;,&quot;TituloPatente&quot;:&quot;sample string 5&quot;,&quot;PaisOrigem&quot;:&quot;sample string 6&quot;,&quot;Pasta&quot;:&quot;sample string 7&quot;,&quot;Referencia&quot;:&quot;sample string 8&quot;,&quot;PaisDeposito&quot;:&quot;sample string 9&quot;,&quot;Status&quot;:&quot;sample string 10&quot;,&quot;Envolvidos&quot;:[{&quot;Id&quot;:1,&quot;TipoDoEnvolvidoNome&quot;:&quot;sample string 1&quot;},{&quot;Id&quot;:1,&quot;TipoDoEnvolvidoNome&quot;:&quot;sample string 1&quot;}]},{&quot;Id&quot;:1,&quot;Numero&quot;:&quot;sample string 2&quot;,&quot;Terceiro&quot;:true,&quot;Natureza&quot;:&quot;sample string 4&quot;,&quot;TituloPatente&quot;:&quot;sample string 5&quot;,&quot;PaisOrigem&quot;:&quot;sample string 6&quot;,&quot;Pasta&quot;:&quot;sample string 7&quot;,&quot;Referencia&quot;:&quot;sample string 8&quot;,&quot;PaisDeposito&quot;:&quot;sample string 9&quot;,&quot;Status&quot;:&quot;sample string 10&quot;,&quot;Envolvidos&quot;:[{&quot;Id&quot;:1,&quot;TipoDoEnvolvidoNome&quot;:&quot;sample string 1&quot;},{&quot;Id&quot;:1,&quot;TipoDoEnvolvidoNome&quot;:&quot;sample string 1&quot;}]}],&quot;Quantidade&quot;:&quot;sample string 1&quot;,&quot;Message&quot;:&quot;sample string 1&quot;,&quot;Autorizado&quot;:true,&quot;TempoLevado&quot;:&quot;00:00:00.1234567&quot;,&quot;Sucesso&quot;:false}
+</pre>
+        </div>
+        <h4 class="sample-header">application/xml, text/xml</h4>
+        <div class="sample-content">
+            <span><b>Sample:</b></span>
+<pre class="wrapped">
+&lt;ProcessoUnificadoResponse xmlns:i=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns=&quot;http://schemas.datacontract.org/2004/07/LDSoft.APOL.Application.DTO.API.Responses&quot;&gt;
+  &lt;Autorizado&gt;true&lt;/Autorizado&gt;
+  &lt;Mensagens xmlns:d2p1=&quot;http://schemas.microsoft.com/2003/10/Serialization/Arrays&quot;&gt;
+    &lt;d2p1:string&gt;sample string 1&lt;/d2p1:string&gt;
+    &lt;d2p1:string&gt;sample string 2&lt;/d2p1:string&gt;
+  &lt;/Mensagens&gt;
+  &lt;Message&gt;sample string 1&lt;/Message&gt;
+  &lt;Sucesso&gt;false&lt;/Sucesso&gt;
+  &lt;TempoLevado&gt;PT0.1234567S&lt;/TempoLevado&gt;
+  &lt;ProcessosMarca xmlns:d2p1=&quot;http://schemas.datacontract.org/2004/07/LDSoft.APOL.Domain.Core.DTO&quot;&gt;
+    &lt;d2p1:ProcessoUnificadoMarcaDTO&gt;
+      &lt;d2p1:_x003C_Classe_x003E_k__BackingField&gt;sample string 7&lt;/d2p1:_x003C_Classe_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_Envolvidos_x003E_k__BackingField&gt;
+        &lt;d2p1:EnvolvidoBasicoDTO&gt;
+          &lt;d2p1:Id&gt;1&lt;/d2p1:Id&gt;
+          &lt;d2p1:TipoDoEnvolvidoNome&gt;sample string 1&lt;/d2p1:TipoDoEnvolvidoNome&gt;
+        &lt;/d2p1:EnvolvidoBasicoDTO&gt;
+        &lt;d2p1:EnvolvidoBasicoDTO&gt;
+          &lt;d2p1:Id&gt;1&lt;/d2p1:Id&gt;
+          &lt;d2p1:TipoDoEnvolvidoNome&gt;sample string 1&lt;/d2p1:TipoDoEnvolvidoNome&gt;
+        &lt;/d2p1:EnvolvidoBasicoDTO&gt;
+      &lt;/d2p1:_x003C_Envolvidos_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_Especificacao_x003E_k__BackingField&gt;sample string 5&lt;/d2p1:_x003C_Especificacao_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_Id_x003E_k__BackingField&gt;1&lt;/d2p1:_x003C_Id_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_Marca_x003E_k__BackingField&gt;sample string 6&lt;/d2p1:_x003C_Marca_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_Natureza_x003E_k__BackingField&gt;sample string 4&lt;/d2p1:_x003C_Natureza_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_NumeroDoProcesso_x003E_k__BackingField&gt;sample string 2&lt;/d2p1:_x003C_NumeroDoProcesso_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_PaisDeOrigem_x003E_k__BackingField&gt;sample string 12&lt;/d2p1:_x003C_PaisDeOrigem_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_Pasta_x003E_k__BackingField&gt;sample string 10&lt;/d2p1:_x003C_Pasta_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_Referencia_x003E_k__BackingField&gt;sample string 11&lt;/d2p1:_x003C_Referencia_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_Situacao_x003E_k__BackingField&gt;sample string 8&lt;/d2p1:_x003C_Situacao_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_Status_x003E_k__BackingField&gt;sample string 13&lt;/d2p1:_x003C_Status_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_Terceiro_x003E_k__BackingField&gt;true&lt;/d2p1:_x003C_Terceiro_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_Titular_x003E_k__BackingField&gt;sample string 9&lt;/d2p1:_x003C_Titular_x003E_k__BackingField&gt;
+    &lt;/d2p1:ProcessoUnificadoMarcaDTO&gt;
+    &lt;d2p1:ProcessoUnificadoMarcaDTO&gt;
+      &lt;d2p1:_x003C_Classe_x003E_k__BackingField&gt;sample string 7&lt;/d2p1:_x003C_Classe_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_Envolvidos_x003E_k__BackingField&gt;
+        &lt;d2p1:EnvolvidoBasicoDTO&gt;
+          &lt;d2p1:Id&gt;1&lt;/d2p1:Id&gt;
+          &lt;d2p1:TipoDoEnvolvidoNome&gt;sample string 1&lt;/d2p1:TipoDoEnvolvidoNome&gt;
+        &lt;/d2p1:EnvolvidoBasicoDTO&gt;
+        &lt;d2p1:EnvolvidoBasicoDTO&gt;
+          &lt;d2p1:Id&gt;1&lt;/d2p1:Id&gt;
+          &lt;d2p1:TipoDoEnvolvidoNome&gt;sample string 1&lt;/d2p1:TipoDoEnvolvidoNome&gt;
+        &lt;/d2p1:EnvolvidoBasicoDTO&gt;
+      &lt;/d2p1:_x003C_Envolvidos_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_Especificacao_x003E_k__BackingField&gt;sample string 5&lt;/d2p1:_x003C_Especificacao_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_Id_x003E_k__BackingField&gt;1&lt;/d2p1:_x003C_Id_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_Marca_x003E_k__BackingField&gt;sample string 6&lt;/d2p1:_x003C_Marca_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_Natureza_x003E_k__BackingField&gt;sample string 4&lt;/d2p1:_x003C_Natureza_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_NumeroDoProcesso_x003E_k__BackingField&gt;sample string 2&lt;/d2p1:_x003C_NumeroDoProcesso_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_PaisDeOrigem_x003E_k__BackingField&gt;sample string 12&lt;/d2p1:_x003C_PaisDeOrigem_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_Pasta_x003E_k__BackingField&gt;sample string 10&lt;/d2p1:_x003C_Pasta_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_Referencia_x003E_k__BackingField&gt;sample string 11&lt;/d2p1:_x003C_Referencia_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_Situacao_x003E_k__BackingField&gt;sample string 8&lt;/d2p1:_x003C_Situacao_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_Status_x003E_k__BackingField&gt;sample string 13&lt;/d2p1:_x003C_Status_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_Terceiro_x003E_k__BackingField&gt;true&lt;/d2p1:_x003C_Terceiro_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_Titular_x003E_k__BackingField&gt;sample string 9&lt;/d2p1:_x003C_Titular_x003E_k__BackingField&gt;
+    &lt;/d2p1:ProcessoUnificadoMarcaDTO&gt;
+  &lt;/ProcessosMarca&gt;
+  &lt;ProcessosMarcaInternacional xmlns:d2p1=&quot;http://schemas.datacontract.org/2004/07/LDSoft.APOL.Domain.Core.DTO&quot;&gt;
+    &lt;d2p1:ProcessoUnificadoMarcaInternacionalDTO&gt;
+      &lt;d2p1:_x003C_ClasseInternacional_x003E_k__BackingField&gt;sample string 8&lt;/d2p1:_x003C_ClasseInternacional_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_Classe_x003E_k__BackingField&gt;sample string 7&lt;/d2p1:_x003C_Classe_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_Envolvidos_x003E_k__BackingField&gt;
+        &lt;d2p1:EnvolvidoBasicoDTO&gt;
+          &lt;d2p1:Id&gt;1&lt;/d2p1:Id&gt;
+          &lt;d2p1:TipoDoEnvolvidoNome&gt;sample string 1&lt;/d2p1:TipoDoEnvolvidoNome&gt;
+        &lt;/d2p1:EnvolvidoBasicoDTO&gt;
+        &lt;d2p1:EnvolvidoBasicoDTO&gt;
+          &lt;d2p1:Id&gt;1&lt;/d2p1:Id&gt;
+          &lt;d2p1:TipoDoEnvolvidoNome&gt;sample string 1&lt;/d2p1:TipoDoEnvolvidoNome&gt;
+        &lt;/d2p1:EnvolvidoBasicoDTO&gt;
+      &lt;/d2p1:_x003C_Envolvidos_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_Especificacao_x003E_k__BackingField&gt;sample string 5&lt;/d2p1:_x003C_Especificacao_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_Id_x003E_k__BackingField&gt;1&lt;/d2p1:_x003C_Id_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_Marca_x003E_k__BackingField&gt;sample string 6&lt;/d2p1:_x003C_Marca_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_Natureza_x003E_k__BackingField&gt;sample string 4&lt;/d2p1:_x003C_Natureza_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_Numero_x003E_k__BackingField&gt;sample string 2&lt;/d2p1:_x003C_Numero_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_PaisDeposito_x003E_k__BackingField&gt;sample string 11&lt;/d2p1:_x003C_PaisDeposito_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_Pasta_x003E_k__BackingField&gt;sample string 9&lt;/d2p1:_x003C_Pasta_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_Referencia_x003E_k__BackingField&gt;sample string 10&lt;/d2p1:_x003C_Referencia_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_Status_x003E_k__BackingField&gt;sample string 12&lt;/d2p1:_x003C_Status_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_Terceiro_x003E_k__BackingField&gt;true&lt;/d2p1:_x003C_Terceiro_x003E_k__BackingField&gt;
+    &lt;/d2p1:ProcessoUnificadoMarcaInternacionalDTO&gt;
+    &lt;d2p1:ProcessoUnificadoMarcaInternacionalDTO&gt;
+      &lt;d2p1:_x003C_ClasseInternacional_x003E_k__BackingField&gt;sample string 8&lt;/d2p1:_x003C_ClasseInternacional_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_Classe_x003E_k__BackingField&gt;sample string 7&lt;/d2p1:_x003C_Classe_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_Envolvidos_x003E_k__BackingField&gt;
+        &lt;d2p1:EnvolvidoBasicoDTO&gt;
+          &lt;d2p1:Id&gt;1&lt;/d2p1:Id&gt;
+          &lt;d2p1:TipoDoEnvolvidoNome&gt;sample string 1&lt;/d2p1:TipoDoEnvolvidoNome&gt;
+        &lt;/d2p1:EnvolvidoBasicoDTO&gt;
+        &lt;d2p1:EnvolvidoBasicoDTO&gt;
+          &lt;d2p1:Id&gt;1&lt;/d2p1:Id&gt;
+          &lt;d2p1:TipoDoEnvolvidoNome&gt;sample string 1&lt;/d2p1:TipoDoEnvolvidoNome&gt;
+        &lt;/d2p1:EnvolvidoBasicoDTO&gt;
+      &lt;/d2p1:_x003C_Envolvidos_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_Especificacao_x003E_k__BackingField&gt;sample string 5&lt;/d2p1:_x003C_Especificacao_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_Id_x003E_k__BackingField&gt;1&lt;/d2p1:_x003C_Id_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_Marca_x003E_k__BackingField&gt;sample string 6&lt;/d2p1:_x003C_Marca_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_Natureza_x003E_k__BackingField&gt;sample string 4&lt;/d2p1:_x003C_Natureza_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_Numero_x003E_k__BackingField&gt;sample string 2&lt;/d2p1:_x003C_Numero_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_PaisDeposito_x003E_k__BackingField&gt;sample string 11&lt;/d2p1:_x003C_PaisDeposito_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_Pasta_x003E_k__BackingField&gt;sample string 9&lt;/d2p1:_x003C_Pasta_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_Referencia_x003E_k__BackingField&gt;sample string 10&lt;/d2p1:_x003C_Referencia_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_Status_x003E_k__BackingField&gt;sample string 12&lt;/d2p1:_x003C_Status_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_Terceiro_x003E_k__BackingField&gt;true&lt;/d2p1:_x003C_Terceiro_x003E_k__BackingField&gt;
+    &lt;/d2p1:ProcessoUnificadoMarcaInternacionalDTO&gt;
+  &lt;/ProcessosMarcaInternacional&gt;
+  &lt;ProcessosPatente xmlns:d2p1=&quot;http://schemas.datacontract.org/2004/07/LDSoft.APOL.Domain.Core.DTO&quot;&gt;
+    &lt;d2p1:ProcessoUnificadoPatenteDTO&gt;
+      &lt;d2p1:_x003C_Envolvidos_x003E_k__BackingField&gt;
+        &lt;d2p1:EnvolvidoBasicoDTO&gt;
+          &lt;d2p1:Id&gt;1&lt;/d2p1:Id&gt;
+          &lt;d2p1:TipoDoEnvolvidoNome&gt;sample string 1&lt;/d2p1:TipoDoEnvolvidoNome&gt;
+        &lt;/d2p1:EnvolvidoBasicoDTO&gt;
+        &lt;d2p1:EnvolvidoBasicoDTO&gt;
+          &lt;d2p1:Id&gt;1&lt;/d2p1:Id&gt;
+          &lt;d2p1:TipoDoEnvolvidoNome&gt;sample string 1&lt;/d2p1:TipoDoEnvolvidoNome&gt;
+        &lt;/d2p1:EnvolvidoBasicoDTO&gt;
+      &lt;/d2p1:_x003C_Envolvidos_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_Id_x003E_k__BackingField&gt;1&lt;/d2p1:_x003C_Id_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_Natureza_x003E_k__BackingField&gt;sample string 3&lt;/d2p1:_x003C_Natureza_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_NumeroDoProcesso_x003E_k__BackingField&gt;sample string 2&lt;/d2p1:_x003C_NumeroDoProcesso_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_Pasta_x003E_k__BackingField&gt;sample string 8&lt;/d2p1:_x003C_Pasta_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_Referencia_x003E_k__BackingField&gt;sample string 9&lt;/d2p1:_x003C_Referencia_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_Situacao_x003E_k__BackingField&gt;sample string 6&lt;/d2p1:_x003C_Situacao_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_Status_x003E_k__BackingField&gt;sample string 10&lt;/d2p1:_x003C_Status_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_Terceiro_x003E_k__BackingField&gt;true&lt;/d2p1:_x003C_Terceiro_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_Titular_x003E_k__BackingField&gt;sample string 7&lt;/d2p1:_x003C_Titular_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_Titulo_x003E_k__BackingField&gt;sample string 5&lt;/d2p1:_x003C_Titulo_x003E_k__BackingField&gt;
+    &lt;/d2p1:ProcessoUnificadoPatenteDTO&gt;
+    &lt;d2p1:ProcessoUnificadoPatenteDTO&gt;
+      &lt;d2p1:_x003C_Envolvidos_x003E_k__BackingField&gt;
+        &lt;d2p1:EnvolvidoBasicoDTO&gt;
+          &lt;d2p1:Id&gt;1&lt;/d2p1:Id&gt;
+          &lt;d2p1:TipoDoEnvolvidoNome&gt;sample string 1&lt;/d2p1:TipoDoEnvolvidoNome&gt;
+        &lt;/d2p1:EnvolvidoBasicoDTO&gt;
+        &lt;d2p1:EnvolvidoBasicoDTO&gt;
+          &lt;d2p1:Id&gt;1&lt;/d2p1:Id&gt;
+          &lt;d2p1:TipoDoEnvolvidoNome&gt;sample string 1&lt;/d2p1:TipoDoEnvolvidoNome&gt;
+        &lt;/d2p1:EnvolvidoBasicoDTO&gt;
+      &lt;/d2p1:_x003C_Envolvidos_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_Id_x003E_k__BackingField&gt;1&lt;/d2p1:_x003C_Id_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_Natureza_x003E_k__BackingField&gt;sample string 3&lt;/d2p1:_x003C_Natureza_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_NumeroDoProcesso_x003E_k__BackingField&gt;sample string 2&lt;/d2p1:_x003C_NumeroDoProcesso_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_Pasta_x003E_k__BackingField&gt;sample string 8&lt;/d2p1:_x003C_Pasta_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_Referencia_x003E_k__BackingField&gt;sample string 9&lt;/d2p1:_x003C_Referencia_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_Situacao_x003E_k__BackingField&gt;sample string 6&lt;/d2p1:_x003C_Situacao_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_Status_x003E_k__BackingField&gt;sample string 10&lt;/d2p1:_x003C_Status_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_Terceiro_x003E_k__BackingField&gt;true&lt;/d2p1:_x003C_Terceiro_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_Titular_x003E_k__BackingField&gt;sample string 7&lt;/d2p1:_x003C_Titular_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_Titulo_x003E_k__BackingField&gt;sample string 5&lt;/d2p1:_x003C_Titulo_x003E_k__BackingField&gt;
+    &lt;/d2p1:ProcessoUnificadoPatenteDTO&gt;
+  &lt;/ProcessosPatente&gt;
+  &lt;ProcessosPatenteInternacional xmlns:d2p1=&quot;http://schemas.datacontract.org/2004/07/LDSoft.APOL.Domain.Core.DTO&quot;&gt;
+    &lt;d2p1:ProcessoUnificadoPatenteInternacionalDTO&gt;
+      &lt;d2p1:_x003C_Envolvidos_x003E_k__BackingField&gt;
+        &lt;d2p1:EnvolvidoBasicoDTO&gt;
+          &lt;d2p1:Id&gt;1&lt;/d2p1:Id&gt;
+          &lt;d2p1:TipoDoEnvolvidoNome&gt;sample string 1&lt;/d2p1:TipoDoEnvolvidoNome&gt;
+        &lt;/d2p1:EnvolvidoBasicoDTO&gt;
+        &lt;d2p1:EnvolvidoBasicoDTO&gt;
+          &lt;d2p1:Id&gt;1&lt;/d2p1:Id&gt;
+          &lt;d2p1:TipoDoEnvolvidoNome&gt;sample string 1&lt;/d2p1:TipoDoEnvolvidoNome&gt;
+        &lt;/d2p1:EnvolvidoBasicoDTO&gt;
+      &lt;/d2p1:_x003C_Envolvidos_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_Id_x003E_k__BackingField&gt;1&lt;/d2p1:_x003C_Id_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_Natureza_x003E_k__BackingField&gt;sample string 4&lt;/d2p1:_x003C_Natureza_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_Numero_x003E_k__BackingField&gt;sample string 2&lt;/d2p1:_x003C_Numero_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_PaisDeposito_x003E_k__BackingField&gt;sample string 9&lt;/d2p1:_x003C_PaisDeposito_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_PaisOrigem_x003E_k__BackingField&gt;sample string 6&lt;/d2p1:_x003C_PaisOrigem_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_Pasta_x003E_k__BackingField&gt;sample string 7&lt;/d2p1:_x003C_Pasta_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_Referencia_x003E_k__BackingField&gt;sample string 8&lt;/d2p1:_x003C_Referencia_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_Status_x003E_k__BackingField&gt;sample string 10&lt;/d2p1:_x003C_Status_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_Terceiro_x003E_k__BackingField&gt;true&lt;/d2p1:_x003C_Terceiro_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_TituloPatente_x003E_k__BackingField&gt;sample string 5&lt;/d2p1:_x003C_TituloPatente_x003E_k__BackingField&gt;
+    &lt;/d2p1:ProcessoUnificadoPatenteInternacionalDTO&gt;
+    &lt;d2p1:ProcessoUnificadoPatenteInternacionalDTO&gt;
+      &lt;d2p1:_x003C_Envolvidos_x003E_k__BackingField&gt;
+        &lt;d2p1:EnvolvidoBasicoDTO&gt;
+          &lt;d2p1:Id&gt;1&lt;/d2p1:Id&gt;
+          &lt;d2p1:TipoDoEnvolvidoNome&gt;sample string 1&lt;/d2p1:TipoDoEnvolvidoNome&gt;
+        &lt;/d2p1:EnvolvidoBasicoDTO&gt;
+        &lt;d2p1:EnvolvidoBasicoDTO&gt;
+          &lt;d2p1:Id&gt;1&lt;/d2p1:Id&gt;
+          &lt;d2p1:TipoDoEnvolvidoNome&gt;sample string 1&lt;/d2p1:TipoDoEnvolvidoNome&gt;
+        &lt;/d2p1:EnvolvidoBasicoDTO&gt;
+      &lt;/d2p1:_x003C_Envolvidos_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_Id_x003E_k__BackingField&gt;1&lt;/d2p1:_x003C_Id_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_Natureza_x003E_k__BackingField&gt;sample string 4&lt;/d2p1:_x003C_Natureza_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_Numero_x003E_k__BackingField&gt;sample string 2&lt;/d2p1:_x003C_Numero_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_PaisDeposito_x003E_k__BackingField&gt;sample string 9&lt;/d2p1:_x003C_PaisDeposito_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_PaisOrigem_x003E_k__BackingField&gt;sample string 6&lt;/d2p1:_x003C_PaisOrigem_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_Pasta_x003E_k__BackingField&gt;sample string 7&lt;/d2p1:_x003C_Pasta_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_Referencia_x003E_k__BackingField&gt;sample string 8&lt;/d2p1:_x003C_Referencia_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_Status_x003E_k__BackingField&gt;sample string 10&lt;/d2p1:_x003C_Status_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_Terceiro_x003E_k__BackingField&gt;true&lt;/d2p1:_x003C_Terceiro_x003E_k__BackingField&gt;
+      &lt;d2p1:_x003C_TituloPatente_x003E_k__BackingField&gt;sample string 5&lt;/d2p1:_x003C_TituloPatente_x003E_k__BackingField&gt;
+    &lt;/d2p1:ProcessoUnificadoPatenteInternacionalDTO&gt;
+  &lt;/ProcessosPatenteInternacional&gt;
+  &lt;Quantidade&gt;sample string 1&lt;/Quantidade&gt;
+&lt;/ProcessoUnificadoResponse&gt;
+</pre>
+        </div>
+</div>
+</div>
+    </section>
+</div>
+
+</body>
+</html>

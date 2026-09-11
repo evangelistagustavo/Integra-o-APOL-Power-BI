@@ -1,0 +1,2599 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://ld2.ldsoft.com.br//" xmlns:s1="http://ld2.ldsoft.com.br//AbstractTypes" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" targetNamespace="http://ld2.ldsoft.com.br//" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://ld2.ldsoft.com.br//">
+      <s:element name="InserirProcesso">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="senha" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="numeroDoProcesso" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="marca" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="apresentacao" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NCL" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pasta" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="referencia" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="terceiro" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="dataDeDeposito" nillable="true" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InserirProcessoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InserirProcessoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarProcesso">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="senha" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="numeroDoProcesso" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarProcessoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarProcessoResult" type="tns:BusinessResponseOfProcessoMarcaDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="BusinessResponseOfProcessoMarcaDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Response" type="tns:ProcessoMarcaDTO" />
+          <s:element minOccurs="0" maxOccurs="1" name="TotalDeRegistro" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TotalDePaginas" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Messages" type="tns:ArrayOfString" />
+          <s:element minOccurs="1" maxOccurs="1" name="TempoDeResposta" type="tns:TimeSpan" />
+          <s:element minOccurs="1" maxOccurs="1" name="Autorizado" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ProcessoMarcaDTO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Terceiro" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Publicado" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Natureza" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NaturezaExtenso" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescricaoNatureza" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CFE" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DataDeDeposito" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Especificacao" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Apresentacao" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ApelidoDaMarca" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescricaoApresentacao" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nice" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NCL" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Prioridades" type="tns:ArrayOfPrioridadeDTO" />
+          <s:element minOccurs="0" maxOccurs="1" name="Marca" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NumeroDoProcesso" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DataDeConcessao" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DataDeVigencia" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DataDeProrrogacao" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Classe" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubClasse1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubClasse2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubClasse3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CFE1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CFE2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CFE3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CFE4" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CFE5" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Situacao" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ImagemDoProcesso" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CPFCNPJTitular" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Titular" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Procurador" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Apostila" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Despachos" type="tns:ArrayOfDespachoMarcaDTO" />
+          <s:element minOccurs="0" maxOccurs="1" name="DespachosComplementares" type="tns:ArrayOfDespachoComplementarDTO" />
+          <s:element minOccurs="0" maxOccurs="1" name="LinkDaImagem" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ElementoFigurativo" type="s:base64Binary" />
+          <s:element minOccurs="0" maxOccurs="1" name="ElementoFigurativoErro" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ArquivoPdf" type="s:base64Binary" />
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DataDeCadastro" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DataDeManutencao" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="ControlarProrrogacoes" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="DataDePagamentoDaProrrogacao" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Pasta" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Responsavel" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NomeCampoLivre1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CampoLivre1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NomeCampoLivre2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CampoLivre2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NomeCampoLivre3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CampoLivre3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EspecificacaoEmOutroIdioma" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IdiomaDaEspecificacao" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Referencia" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PaisDeOrigem" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Controle" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ReivindicacaoDeCor" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="MarcaLicenciada" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Comentario" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ComentarioModuloConsulta" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Envolvidos" type="tns:ArrayOfEnvolvidoDTO" />
+          <s:element minOccurs="0" maxOccurs="1" name="RegistrosVinculados" type="tns:ArrayOfRegistroVinculadoDTO" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ocorrencias" type="tns:ArrayOfOcorrenciaDTO" />
+          <s:element minOccurs="0" maxOccurs="1" name="Providencias" type="tns:ArrayOfProvidenciaDTO" />
+          <s:element minOccurs="0" maxOccurs="1" name="ArquivosAnexados" type="tns:ArrayOfArquivoAnexadoDTO" />
+          <s:element minOccurs="0" maxOccurs="1" name="Custos" type="tns:ArrayOfCustoDoProcessoDTO" />
+          <s:element minOccurs="1" maxOccurs="1" name="ProtocoloDeMadri" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Irn" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DataRecebimentoInpi" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DataConcessaoIrn" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DataProrrogacaoIrn" nillable="true" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfPrioridadeDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PrioridadeDTO" nillable="true" type="tns:PrioridadeDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PrioridadeDTO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="DataDeposito" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="IdiomaDaCarta" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Numero" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Pais" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfDespachoMarcaDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DespachoMarcaDTO" nillable="true" type="tns:DespachoMarcaDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DespachoMarcaDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="RPI" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DataRPI" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Despacho" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descricao" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Complemento" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Peticao" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="pagina" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="pdf" type="s:base64Binary" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfDespachoComplementarDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DespachoComplementarDTO" nillable="true" type="tns:DespachoComplementarDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DespachoComplementarDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Processo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RPI" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DataRPI" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Despacho" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descricao" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Complemento" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Peticao" nillable="true" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfEnvolvidoDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="EnvolvidoDTO" nillable="true" type="tns:EnvolvidoDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EnvolvidoDTO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="TipoDoEnvolvidoNome" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="EnvolvidoPrincipalDoProcesso" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="RecebeCarta" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="EnvolvidoApelido" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EnvolvidoPasta" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContatoEnvolvidoNome" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EnvolvidoInventores" type="tns:ArrayOfInventorDTO" />
+          <s:element minOccurs="0" maxOccurs="1" name="Idioma" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Grupo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="GrupoCarta" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Pessoa" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DescontoINPI" nillable="true" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfInventorDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="InventorDTO" nillable="true" type="tns:InventorDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="InventorDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Nome" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfRegistroVinculadoDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="RegistroVinculadoDTO" nillable="true" type="tns:RegistroVinculadoDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="RegistroVinculadoDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Modulo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Registro" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Observacao" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfOcorrenciaDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="OcorrenciaDTO" nillable="true" type="tns:OcorrenciaDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="OcorrenciaDTO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="DataDeGeracao" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descricao" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Protocolo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Detalhe" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Idioma" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescricaoOutroIdioma" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DetalheOutroIdioma" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfProvidenciaDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ProvidenciaDTO" nillable="true" type="tns:ProvidenciaDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ProvidenciaDTO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="DataGerencial" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DataOficial" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Despacho" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RPI" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descricao" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Executada" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ItemDeChecagem" type="tns:ItemDeChecagemDTO" />
+          <s:element minOccurs="0" maxOccurs="1" name="Responsavel" type="tns:ResponsavelDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ItemDeChecagemDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Descricao" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DataBase" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Operacao" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PrazoOficialDias" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PrazoOficialMeses" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PrazoOficialAnos" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PrazoGerencialDias" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PrazoGerencialMeses" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PrazoGerencialAnos" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Terceiros" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ResponsavelDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Usuario" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nome" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Tipo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Observacao" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Abreviatura" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Qualificacao" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NumeroOAB" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NumeroAPI" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CNPJ_CPF" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AssinaMarca" nillable="true" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="AssinaPatente" nillable="true" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Assina" nillable="true" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfArquivoAnexadoDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ArquivoAnexadoDTO" nillable="true" type="tns:ArquivoAnexadoDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArquivoAnexadoDTO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DataDeCadastro" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="NomeDoArquivo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TipoDeAnexoNome" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descricao" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Url" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Arquivo" type="s:base64Binary" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfCustoDoProcessoDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CustoDoProcessoDTO" nillable="true" type="tns:CustoDoProcessoDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CustoDoProcessoDTO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="DataDoCusto" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Tipo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Atividade" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descricao" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EnvolvidoDoCusto" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ResponsavelDoCusto" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="QuantidadeHora" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Moeda" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ValorUnitario" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="ValorTotal" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="NaoCobravel" nillable="true" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TimeSpan" />
+      <s:element name="ObterProcessosNaoSincronizados">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="senha" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObterProcessosNaoSincronizadosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObterProcessosNaoSincronizadosResult" type="tns:BusinessResponseOfListOfProcesssoMarcaIdDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="BusinessResponseOfListOfProcesssoMarcaIdDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Response" type="tns:ArrayOfProcesssoMarcaIdDTO" />
+          <s:element minOccurs="0" maxOccurs="1" name="TotalDeRegistro" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TotalDePaginas" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Messages" type="tns:ArrayOfString" />
+          <s:element minOccurs="1" maxOccurs="1" name="TempoDeResposta" type="tns:TimeSpan" />
+          <s:element minOccurs="1" maxOccurs="1" name="Autorizado" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfProcesssoMarcaIdDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ProcesssoMarcaIdDTO" nillable="true" type="tns:ProcesssoMarcaIdDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ProcesssoMarcaIdDTO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Processo" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="InformarSincronizacao">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="senha" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="IdProcesso" type="tns:ArrayOfInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfInt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="int" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="InformarSincronizacaoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InformarSincronizacaoResult" type="tns:BusinessResponseOfDateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="BusinessResponseOfDateTime">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Response" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="TotalDeRegistro" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TotalDePaginas" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Messages" type="tns:ArrayOfString" />
+          <s:element minOccurs="1" maxOccurs="1" name="TempoDeResposta" type="tns:TimeSpan" />
+          <s:element minOccurs="1" maxOccurs="1" name="Autorizado" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ConsultarProcessoSemPDF">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="senha" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="numeroDoProcesso" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarProcessoSemPDFResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarProcessoSemPDFResult" type="tns:BusinessResponseOfProcessoMarcaDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarProcessoPorIdSemPDF">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="senha" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="idDoProcesso" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarProcessoPorIdSemPDFResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarProcessoPorIdSemPDFResult" type="tns:BusinessResponseOfProcessoMarcaDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarColidenciasSelecionadas">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="senha" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="rpi" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="registrosPorPagina" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="paginaAtual" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarColidenciasSelecionadasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarColidenciasSelecionadasResult" type="tns:BusinessResponseOfListOfProcessoColidenciaMarcaDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="BusinessResponseOfListOfProcessoColidenciaMarcaDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Response" type="tns:ArrayOfProcessoColidenciaMarcaDTO" />
+          <s:element minOccurs="0" maxOccurs="1" name="TotalDeRegistro" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TotalDePaginas" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Messages" type="tns:ArrayOfString" />
+          <s:element minOccurs="1" maxOccurs="1" name="TempoDeResposta" type="tns:TimeSpan" />
+          <s:element minOccurs="1" maxOccurs="1" name="Autorizado" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfProcessoColidenciaMarcaDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ProcessoColidenciaMarcaDTO" nillable="true" type="tns:ProcessoColidenciaMarcaDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ProcessoColidenciaMarcaDTO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdProcessoControlado" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProcessoControlado" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ElementoColidente" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TipoColidencia" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Comentario" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProcessoColidente" type="tns:ProcessoColidenteDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ProcessoColidenteDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Processo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Marca" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Apresentacao" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Natureza" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CFE" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DataDeDeposito" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Situacao" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DataDeConcessao" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DataDeVigencia" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DataDeProrrogacao" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Classe" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Especificacao" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Procurador" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Titular" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RPI" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DataRPI" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Despacho" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescricaoDespacho" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ComplementoDespacho" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Prioridades" type="tns:ArrayOfPrioridadeDTO" />
+          <s:element minOccurs="0" maxOccurs="1" name="Figura" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ConsultarProcessoPasta">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="senha" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pasta" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarProcessoPastaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarProcessoPastaResult" type="tns:BusinessResponseOfProcessoMarcaDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarProcessoPastaSemPDF">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="senha" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pasta" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarProcessoPastaSemPDFResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarProcessoPastaSemPDFResult" type="tns:BusinessResponseOfProcessoMarcaDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarProcessosDataCadastro">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="senha" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="dataInicial" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="dataFinal" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarProcessosDataCadastroResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarProcessosDataCadastroResult" type="tns:BusinessResponseOfListOfProcessoMarcaDataCadastroDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="BusinessResponseOfListOfProcessoMarcaDataCadastroDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Response" type="tns:ArrayOfProcessoMarcaDataCadastroDTO" />
+          <s:element minOccurs="0" maxOccurs="1" name="TotalDeRegistro" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TotalDePaginas" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Messages" type="tns:ArrayOfString" />
+          <s:element minOccurs="1" maxOccurs="1" name="TempoDeResposta" type="tns:TimeSpan" />
+          <s:element minOccurs="1" maxOccurs="1" name="Autorizado" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfProcessoMarcaDataCadastroDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ProcessoMarcaDataCadastroDTO" nillable="true" type="tns:ProcessoMarcaDataCadastroDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ProcessoMarcaDataCadastroDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Processo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DataDeCadastro" nillable="true" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ConsultarProcessosDataManutencao">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="senha" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="dataInicial" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="dataFinal" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarProcessosDataManutencaoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarProcessosDataManutencaoResult" type="tns:BusinessResponseOfListOfProcessoMarcaDataManutencaoDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="BusinessResponseOfListOfProcessoMarcaDataManutencaoDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Response" type="tns:ArrayOfProcessoMarcaDataManutencaoDTO" />
+          <s:element minOccurs="0" maxOccurs="1" name="TotalDeRegistro" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TotalDePaginas" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Messages" type="tns:ArrayOfString" />
+          <s:element minOccurs="1" maxOccurs="1" name="TempoDeResposta" type="tns:TimeSpan" />
+          <s:element minOccurs="1" maxOccurs="1" name="Autorizado" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfProcessoMarcaDataManutencaoDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ProcessoMarcaDataManutencaoDTO" nillable="true" type="tns:ProcessoMarcaDataManutencaoDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ProcessoMarcaDataManutencaoDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Processo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DataDeManutencao" nillable="true" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ConsultarProcessosIdEnvolvido">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="senha" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="idDoEnvolvido" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarProcessosIdEnvolvidoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarProcessosIdEnvolvidoResult" type="tns:BusinessResponseOfListOfProcesssoMarcaIdDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarProcessosCnpjCpfInpiEnvolvido">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="senha" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cnpjCpfInpi" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarProcessosCnpjCpfInpiEnvolvidoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarProcessosCnpjCpfInpiEnvolvidoResult" type="tns:BusinessResponseOfListOfProcesssoMarcaIdDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExcluirProcesso">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="senha" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="numeroDoProcesso" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExcluirProcessoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ExcluirProcessoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AlterarProcesso">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="senha" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="numeroDoProcesso" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="marca" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="apresentacao" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="novaNcl" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="antigaNcl" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="status" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pasta" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="referencia" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="terceiro" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="dataDeDeposito" nillable="true" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="controle" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="campoLivre1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="campoLivre2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="campoLivre3" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AlterarProcessoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AlterarProcessoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AlterarProcessoPorId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="senha" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="idProcesso" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="marca" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="apresentacao" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="novaNcl" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="antigaNcl" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="status" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pasta" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="referencia" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="terceiro" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="dataDeDeposito" nillable="true" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="controle" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="campoLivre1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="campoLivre2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="campoLivre3" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AlterarProcessoPorIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AlterarProcessoPorIdResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InserirEnvolvido">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="senha" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="idProcesso" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="idEnvolvido" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="idTipoEnvolvido" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InserirEnvolvidoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InserirEnvolvidoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AlterarEnvolvido">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="senha" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="idProcesso" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="idEnvolvido" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="idTipoEnvolvido" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="idNovoEnvolvido" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="idTipoNovoEnvolvido" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AlterarEnvolvidoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AlterarEnvolvidoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExcluirEnvolvido">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="senha" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="idProcesso" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="idEnvolvido" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="idTipoEnvolvido" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExcluirEnvolvidoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ExcluirEnvolvidoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InserirProcessoPorPeticaoBase64">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="senha" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nomeArquivo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="conteudoArquivo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InserirProcessoPorPeticaoBase64Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InserirProcessoPorPeticaoBase64Result" type="tns:BusinessResponseOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="BusinessResponseOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Response" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TotalDeRegistro" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TotalDePaginas" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Messages" type="tns:ArrayOfString" />
+          <s:element minOccurs="1" maxOccurs="1" name="TempoDeResposta" type="tns:TimeSpan" />
+          <s:element minOccurs="1" maxOccurs="1" name="Autorizado" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="InserirProcessoPorPeticaoDeDeposito">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="senha" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="arquivo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="arrBytesArquivo" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InserirProcessoPorPeticaoDeDepositoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InserirProcessoPorPeticaoDeDepositoResult" type="tns:BusinessResponseOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AtualizarProcessoNpPorPDF">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idProcesso" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="senha" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="arquivo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sistema" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AtualizarProcessoNpPorPDFResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AtualizarProcessoNpPorPDFResult" type="tns:BusinessResponseOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InserirProcessoPorPDF">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="senha" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="arquivo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="responsavel" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="tipoEnvolvido" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="envolvido" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="sistema" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InserirProcessoPorPDFResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InserirProcessoPorPDFResult" type="tns:BusinessResponseOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EnviarPeticaoComErro">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="senha" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="arquivo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sistema" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="erro" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EnviarPeticaoComErroResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EnviarPeticaoComErroResult" type="tns:BusinessResponseOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InserirPeticao">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="peticaoDTO" type="tns:PeticaoDTO" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="PeticaoDTO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Processo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Natureza" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Data" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Servico" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cliente" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Protocolo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RPI" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Url" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DataCadastro" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Nuvem" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="DataNuvem" nillable="true" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="InserirPeticaoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InserirPeticaoResult" type="tns:BusinessResponseOfBoolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="BusinessResponseOfBoolean">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Response" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="TotalDeRegistro" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TotalDePaginas" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Messages" type="tns:ArrayOfString" />
+          <s:element minOccurs="1" maxOccurs="1" name="TempoDeResposta" type="tns:TimeSpan" />
+          <s:element minOccurs="1" maxOccurs="1" name="Autorizado" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="BusinessResponseOfProcessoMarcaDTO" nillable="true" type="tns:BusinessResponseOfProcessoMarcaDTO" />
+      <s:element name="BusinessResponseOfListOfProcesssoMarcaIdDTO" nillable="true" type="tns:BusinessResponseOfListOfProcesssoMarcaIdDTO" />
+      <s:element name="BusinessResponseOfDateTime" nillable="true" type="tns:BusinessResponseOfDateTime" />
+      <s:element name="BusinessResponseOfListOfProcessoColidenciaMarcaDTO" nillable="true" type="tns:BusinessResponseOfListOfProcessoColidenciaMarcaDTO" />
+      <s:element name="BusinessResponseOfListOfProcessoMarcaDataCadastroDTO" nillable="true" type="tns:BusinessResponseOfListOfProcessoMarcaDataCadastroDTO" />
+      <s:element name="BusinessResponseOfListOfProcessoMarcaDataManutencaoDTO" nillable="true" type="tns:BusinessResponseOfListOfProcessoMarcaDataManutencaoDTO" />
+      <s:element name="string" nillable="true" type="s:string" />
+      <s:element name="BusinessResponseOfString" nillable="true" type="tns:BusinessResponseOfString" />
+    </s:schema>
+    <s:schema targetNamespace="http://ld2.ldsoft.com.br//AbstractTypes">
+      <s:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <s:complexType name="StringArray">
+        <s:complexContent mixed="false">
+          <s:restriction base="soapenc:Array">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="unbounded" name="String" type="s:string" />
+            </s:sequence>
+          </s:restriction>
+        </s:complexContent>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="InserirProcessoSoapIn">
+    <wsdl:part name="parameters" element="tns:InserirProcesso" />
+  </wsdl:message>
+  <wsdl:message name="InserirProcessoSoapOut">
+    <wsdl:part name="parameters" element="tns:InserirProcessoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarProcessoSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarProcesso" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarProcessoSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarProcessoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObterProcessosNaoSincronizadosSoapIn">
+    <wsdl:part name="parameters" element="tns:ObterProcessosNaoSincronizados" />
+  </wsdl:message>
+  <wsdl:message name="ObterProcessosNaoSincronizadosSoapOut">
+    <wsdl:part name="parameters" element="tns:ObterProcessosNaoSincronizadosResponse" />
+  </wsdl:message>
+  <wsdl:message name="InformarSincronizacaoSoapIn">
+    <wsdl:part name="parameters" element="tns:InformarSincronizacao" />
+  </wsdl:message>
+  <wsdl:message name="InformarSincronizacaoSoapOut">
+    <wsdl:part name="parameters" element="tns:InformarSincronizacaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarProcessoSemPDFSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarProcessoSemPDF" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarProcessoSemPDFSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarProcessoSemPDFResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarProcessoPorIdSemPDFSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarProcessoPorIdSemPDF" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarProcessoPorIdSemPDFSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarProcessoPorIdSemPDFResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarColidenciasSelecionadasSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarColidenciasSelecionadas" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarColidenciasSelecionadasSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarColidenciasSelecionadasResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarProcessoPastaSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarProcessoPasta" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarProcessoPastaSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarProcessoPastaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarProcessoPastaSemPDFSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarProcessoPastaSemPDF" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarProcessoPastaSemPDFSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarProcessoPastaSemPDFResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarProcessosDataCadastroSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarProcessosDataCadastro" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarProcessosDataCadastroSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarProcessosDataCadastroResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarProcessosDataManutencaoSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarProcessosDataManutencao" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarProcessosDataManutencaoSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarProcessosDataManutencaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarProcessosIdEnvolvidoSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarProcessosIdEnvolvido" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarProcessosIdEnvolvidoSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarProcessosIdEnvolvidoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarProcessosCnpjCpfInpiEnvolvidoSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarProcessosCnpjCpfInpiEnvolvido" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarProcessosCnpjCpfInpiEnvolvidoSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarProcessosCnpjCpfInpiEnvolvidoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExcluirProcessoSoapIn">
+    <wsdl:part name="parameters" element="tns:ExcluirProcesso" />
+  </wsdl:message>
+  <wsdl:message name="ExcluirProcessoSoapOut">
+    <wsdl:part name="parameters" element="tns:ExcluirProcessoResponse" />
+  </wsdl:message>
+  <wsdl:message name="AlterarProcessoSoapIn">
+    <wsdl:part name="parameters" element="tns:AlterarProcesso" />
+  </wsdl:message>
+  <wsdl:message name="AlterarProcessoSoapOut">
+    <wsdl:part name="parameters" element="tns:AlterarProcessoResponse" />
+  </wsdl:message>
+  <wsdl:message name="AlterarProcessoPorIdSoapIn">
+    <wsdl:part name="parameters" element="tns:AlterarProcessoPorId" />
+  </wsdl:message>
+  <wsdl:message name="AlterarProcessoPorIdSoapOut">
+    <wsdl:part name="parameters" element="tns:AlterarProcessoPorIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="InserirEnvolvidoSoapIn">
+    <wsdl:part name="parameters" element="tns:InserirEnvolvido" />
+  </wsdl:message>
+  <wsdl:message name="InserirEnvolvidoSoapOut">
+    <wsdl:part name="parameters" element="tns:InserirEnvolvidoResponse" />
+  </wsdl:message>
+  <wsdl:message name="AlterarEnvolvidoSoapIn">
+    <wsdl:part name="parameters" element="tns:AlterarEnvolvido" />
+  </wsdl:message>
+  <wsdl:message name="AlterarEnvolvidoSoapOut">
+    <wsdl:part name="parameters" element="tns:AlterarEnvolvidoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExcluirEnvolvidoSoapIn">
+    <wsdl:part name="parameters" element="tns:ExcluirEnvolvido" />
+  </wsdl:message>
+  <wsdl:message name="ExcluirEnvolvidoSoapOut">
+    <wsdl:part name="parameters" element="tns:ExcluirEnvolvidoResponse" />
+  </wsdl:message>
+  <wsdl:message name="InserirProcessoPorPeticaoBase64SoapIn">
+    <wsdl:part name="parameters" element="tns:InserirProcessoPorPeticaoBase64" />
+  </wsdl:message>
+  <wsdl:message name="InserirProcessoPorPeticaoBase64SoapOut">
+    <wsdl:part name="parameters" element="tns:InserirProcessoPorPeticaoBase64Response" />
+  </wsdl:message>
+  <wsdl:message name="InserirProcessoPorPeticaoDeDepositoSoapIn">
+    <wsdl:part name="parameters" element="tns:InserirProcessoPorPeticaoDeDeposito" />
+  </wsdl:message>
+  <wsdl:message name="InserirProcessoPorPeticaoDeDepositoSoapOut">
+    <wsdl:part name="parameters" element="tns:InserirProcessoPorPeticaoDeDepositoResponse" />
+  </wsdl:message>
+  <wsdl:message name="AtualizarProcessoNpPorPDFSoapIn">
+    <wsdl:part name="parameters" element="tns:AtualizarProcessoNpPorPDF" />
+  </wsdl:message>
+  <wsdl:message name="AtualizarProcessoNpPorPDFSoapOut">
+    <wsdl:part name="parameters" element="tns:AtualizarProcessoNpPorPDFResponse" />
+  </wsdl:message>
+  <wsdl:message name="InserirProcessoPorPDFSoapIn">
+    <wsdl:part name="parameters" element="tns:InserirProcessoPorPDF" />
+  </wsdl:message>
+  <wsdl:message name="InserirProcessoPorPDFSoapOut">
+    <wsdl:part name="parameters" element="tns:InserirProcessoPorPDFResponse" />
+  </wsdl:message>
+  <wsdl:message name="EnviarPeticaoComErroSoapIn">
+    <wsdl:part name="parameters" element="tns:EnviarPeticaoComErro" />
+  </wsdl:message>
+  <wsdl:message name="EnviarPeticaoComErroSoapOut">
+    <wsdl:part name="parameters" element="tns:EnviarPeticaoComErroResponse" />
+  </wsdl:message>
+  <wsdl:message name="InserirPeticaoSoapIn">
+    <wsdl:part name="parameters" element="tns:InserirPeticao" />
+  </wsdl:message>
+  <wsdl:message name="InserirPeticaoSoapOut">
+    <wsdl:part name="parameters" element="tns:InserirPeticaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarProcessoHttpGetIn">
+    <wsdl:part name="usuario" type="s:string" />
+    <wsdl:part name="senha" type="s:string" />
+    <wsdl:part name="numeroDoProcesso" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarProcessoHttpGetOut">
+    <wsdl:part name="Body" element="tns:BusinessResponseOfProcessoMarcaDTO" />
+  </wsdl:message>
+  <wsdl:message name="ObterProcessosNaoSincronizadosHttpGetIn">
+    <wsdl:part name="usuario" type="s:string" />
+    <wsdl:part name="senha" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ObterProcessosNaoSincronizadosHttpGetOut">
+    <wsdl:part name="Body" element="tns:BusinessResponseOfListOfProcesssoMarcaIdDTO" />
+  </wsdl:message>
+  <wsdl:message name="InformarSincronizacaoHttpGetIn">
+    <wsdl:part name="usuario" type="s:string" />
+    <wsdl:part name="senha" type="s:string" />
+    <wsdl:part name="IdProcesso" type="s1:StringArray" />
+  </wsdl:message>
+  <wsdl:message name="InformarSincronizacaoHttpGetOut">
+    <wsdl:part name="Body" element="tns:BusinessResponseOfDateTime" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarProcessoSemPDFHttpGetIn">
+    <wsdl:part name="usuario" type="s:string" />
+    <wsdl:part name="senha" type="s:string" />
+    <wsdl:part name="numeroDoProcesso" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarProcessoSemPDFHttpGetOut">
+    <wsdl:part name="Body" element="tns:BusinessResponseOfProcessoMarcaDTO" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarProcessoPorIdSemPDFHttpGetIn">
+    <wsdl:part name="usuario" type="s:string" />
+    <wsdl:part name="senha" type="s:string" />
+    <wsdl:part name="idDoProcesso" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarProcessoPorIdSemPDFHttpGetOut">
+    <wsdl:part name="Body" element="tns:BusinessResponseOfProcessoMarcaDTO" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarColidenciasSelecionadasHttpGetIn">
+    <wsdl:part name="usuario" type="s:string" />
+    <wsdl:part name="senha" type="s:string" />
+    <wsdl:part name="rpi" type="s:string" />
+    <wsdl:part name="registrosPorPagina" type="s:string" />
+    <wsdl:part name="paginaAtual" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarColidenciasSelecionadasHttpGetOut">
+    <wsdl:part name="Body" element="tns:BusinessResponseOfListOfProcessoColidenciaMarcaDTO" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarProcessoPastaHttpGetIn">
+    <wsdl:part name="usuario" type="s:string" />
+    <wsdl:part name="senha" type="s:string" />
+    <wsdl:part name="pasta" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarProcessoPastaHttpGetOut">
+    <wsdl:part name="Body" element="tns:BusinessResponseOfProcessoMarcaDTO" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarProcessoPastaSemPDFHttpGetIn">
+    <wsdl:part name="usuario" type="s:string" />
+    <wsdl:part name="senha" type="s:string" />
+    <wsdl:part name="pasta" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarProcessoPastaSemPDFHttpGetOut">
+    <wsdl:part name="Body" element="tns:BusinessResponseOfProcessoMarcaDTO" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarProcessosDataCadastroHttpGetIn">
+    <wsdl:part name="usuario" type="s:string" />
+    <wsdl:part name="senha" type="s:string" />
+    <wsdl:part name="dataInicial" type="s:string" />
+    <wsdl:part name="dataFinal" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarProcessosDataCadastroHttpGetOut">
+    <wsdl:part name="Body" element="tns:BusinessResponseOfListOfProcessoMarcaDataCadastroDTO" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarProcessosDataManutencaoHttpGetIn">
+    <wsdl:part name="usuario" type="s:string" />
+    <wsdl:part name="senha" type="s:string" />
+    <wsdl:part name="dataInicial" type="s:string" />
+    <wsdl:part name="dataFinal" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarProcessosDataManutencaoHttpGetOut">
+    <wsdl:part name="Body" element="tns:BusinessResponseOfListOfProcessoMarcaDataManutencaoDTO" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarProcessosIdEnvolvidoHttpGetIn">
+    <wsdl:part name="usuario" type="s:string" />
+    <wsdl:part name="senha" type="s:string" />
+    <wsdl:part name="idDoEnvolvido" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarProcessosIdEnvolvidoHttpGetOut">
+    <wsdl:part name="Body" element="tns:BusinessResponseOfListOfProcesssoMarcaIdDTO" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarProcessosCnpjCpfInpiEnvolvidoHttpGetIn">
+    <wsdl:part name="usuario" type="s:string" />
+    <wsdl:part name="senha" type="s:string" />
+    <wsdl:part name="cnpjCpfInpi" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarProcessosCnpjCpfInpiEnvolvidoHttpGetOut">
+    <wsdl:part name="Body" element="tns:BusinessResponseOfListOfProcesssoMarcaIdDTO" />
+  </wsdl:message>
+  <wsdl:message name="ExcluirProcessoHttpGetIn">
+    <wsdl:part name="usuario" type="s:string" />
+    <wsdl:part name="senha" type="s:string" />
+    <wsdl:part name="numeroDoProcesso" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ExcluirProcessoHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="InserirEnvolvidoHttpGetIn">
+    <wsdl:part name="usuario" type="s:string" />
+    <wsdl:part name="senha" type="s:string" />
+    <wsdl:part name="idProcesso" type="s:string" />
+    <wsdl:part name="idEnvolvido" type="s:string" />
+    <wsdl:part name="idTipoEnvolvido" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="InserirEnvolvidoHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="AlterarEnvolvidoHttpGetIn">
+    <wsdl:part name="usuario" type="s:string" />
+    <wsdl:part name="senha" type="s:string" />
+    <wsdl:part name="idProcesso" type="s:string" />
+    <wsdl:part name="idEnvolvido" type="s:string" />
+    <wsdl:part name="idTipoEnvolvido" type="s:string" />
+    <wsdl:part name="idNovoEnvolvido" type="s:string" />
+    <wsdl:part name="idTipoNovoEnvolvido" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AlterarEnvolvidoHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="ExcluirEnvolvidoHttpGetIn">
+    <wsdl:part name="usuario" type="s:string" />
+    <wsdl:part name="senha" type="s:string" />
+    <wsdl:part name="idProcesso" type="s:string" />
+    <wsdl:part name="idEnvolvido" type="s:string" />
+    <wsdl:part name="idTipoEnvolvido" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ExcluirEnvolvidoHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="InserirProcessoPorPeticaoBase64HttpGetIn">
+    <wsdl:part name="usuario" type="s:string" />
+    <wsdl:part name="senha" type="s:string" />
+    <wsdl:part name="nomeArquivo" type="s:string" />
+    <wsdl:part name="conteudoArquivo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="InserirProcessoPorPeticaoBase64HttpGetOut">
+    <wsdl:part name="Body" element="tns:BusinessResponseOfString" />
+  </wsdl:message>
+  <wsdl:message name="InserirProcessoPorPeticaoDeDepositoHttpGetIn">
+    <wsdl:part name="usuario" type="s:string" />
+    <wsdl:part name="senha" type="s:string" />
+    <wsdl:part name="arquivo" type="s:string" />
+    <wsdl:part name="arrBytesArquivo" type="s1:StringArray" />
+  </wsdl:message>
+  <wsdl:message name="InserirProcessoPorPeticaoDeDepositoHttpGetOut">
+    <wsdl:part name="Body" element="tns:BusinessResponseOfString" />
+  </wsdl:message>
+  <wsdl:message name="AtualizarProcessoNpPorPDFHttpGetIn">
+    <wsdl:part name="idProcesso" type="s:string" />
+    <wsdl:part name="usuario" type="s:string" />
+    <wsdl:part name="senha" type="s:string" />
+    <wsdl:part name="arquivo" type="s:string" />
+    <wsdl:part name="sistema" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AtualizarProcessoNpPorPDFHttpGetOut">
+    <wsdl:part name="Body" element="tns:BusinessResponseOfString" />
+  </wsdl:message>
+  <wsdl:message name="InserirProcessoPorPDFHttpGetIn">
+    <wsdl:part name="usuario" type="s:string" />
+    <wsdl:part name="senha" type="s:string" />
+    <wsdl:part name="arquivo" type="s:string" />
+    <wsdl:part name="responsavel" type="s:string" />
+    <wsdl:part name="tipoEnvolvido" type="s:string" />
+    <wsdl:part name="envolvido" type="s:string" />
+    <wsdl:part name="sistema" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="InserirProcessoPorPDFHttpGetOut">
+    <wsdl:part name="Body" element="tns:BusinessResponseOfString" />
+  </wsdl:message>
+  <wsdl:message name="EnviarPeticaoComErroHttpGetIn">
+    <wsdl:part name="usuario" type="s:string" />
+    <wsdl:part name="senha" type="s:string" />
+    <wsdl:part name="arquivo" type="s:string" />
+    <wsdl:part name="sistema" type="s:string" />
+    <wsdl:part name="erro" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="EnviarPeticaoComErroHttpGetOut">
+    <wsdl:part name="Body" element="tns:BusinessResponseOfString" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarProcessoHttpPostIn">
+    <wsdl:part name="usuario" type="s:string" />
+    <wsdl:part name="senha" type="s:string" />
+    <wsdl:part name="numeroDoProcesso" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarProcessoHttpPostOut">
+    <wsdl:part name="Body" element="tns:BusinessResponseOfProcessoMarcaDTO" />
+  </wsdl:message>
+  <wsdl:message name="ObterProcessosNaoSincronizadosHttpPostIn">
+    <wsdl:part name="usuario" type="s:string" />
+    <wsdl:part name="senha" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ObterProcessosNaoSincronizadosHttpPostOut">
+    <wsdl:part name="Body" element="tns:BusinessResponseOfListOfProcesssoMarcaIdDTO" />
+  </wsdl:message>
+  <wsdl:message name="InformarSincronizacaoHttpPostIn">
+    <wsdl:part name="usuario" type="s:string" />
+    <wsdl:part name="senha" type="s:string" />
+    <wsdl:part name="IdProcesso" type="s1:StringArray" />
+  </wsdl:message>
+  <wsdl:message name="InformarSincronizacaoHttpPostOut">
+    <wsdl:part name="Body" element="tns:BusinessResponseOfDateTime" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarProcessoSemPDFHttpPostIn">
+    <wsdl:part name="usuario" type="s:string" />
+    <wsdl:part name="senha" type="s:string" />
+    <wsdl:part name="numeroDoProcesso" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarProcessoSemPDFHttpPostOut">
+    <wsdl:part name="Body" element="tns:BusinessResponseOfProcessoMarcaDTO" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarProcessoPorIdSemPDFHttpPostIn">
+    <wsdl:part name="usuario" type="s:string" />
+    <wsdl:part name="senha" type="s:string" />
+    <wsdl:part name="idDoProcesso" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarProcessoPorIdSemPDFHttpPostOut">
+    <wsdl:part name="Body" element="tns:BusinessResponseOfProcessoMarcaDTO" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarColidenciasSelecionadasHttpPostIn">
+    <wsdl:part name="usuario" type="s:string" />
+    <wsdl:part name="senha" type="s:string" />
+    <wsdl:part name="rpi" type="s:string" />
+    <wsdl:part name="registrosPorPagina" type="s:string" />
+    <wsdl:part name="paginaAtual" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarColidenciasSelecionadasHttpPostOut">
+    <wsdl:part name="Body" element="tns:BusinessResponseOfListOfProcessoColidenciaMarcaDTO" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarProcessoPastaHttpPostIn">
+    <wsdl:part name="usuario" type="s:string" />
+    <wsdl:part name="senha" type="s:string" />
+    <wsdl:part name="pasta" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarProcessoPastaHttpPostOut">
+    <wsdl:part name="Body" element="tns:BusinessResponseOfProcessoMarcaDTO" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarProcessoPastaSemPDFHttpPostIn">
+    <wsdl:part name="usuario" type="s:string" />
+    <wsdl:part name="senha" type="s:string" />
+    <wsdl:part name="pasta" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarProcessoPastaSemPDFHttpPostOut">
+    <wsdl:part name="Body" element="tns:BusinessResponseOfProcessoMarcaDTO" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarProcessosDataCadastroHttpPostIn">
+    <wsdl:part name="usuario" type="s:string" />
+    <wsdl:part name="senha" type="s:string" />
+    <wsdl:part name="dataInicial" type="s:string" />
+    <wsdl:part name="dataFinal" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarProcessosDataCadastroHttpPostOut">
+    <wsdl:part name="Body" element="tns:BusinessResponseOfListOfProcessoMarcaDataCadastroDTO" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarProcessosDataManutencaoHttpPostIn">
+    <wsdl:part name="usuario" type="s:string" />
+    <wsdl:part name="senha" type="s:string" />
+    <wsdl:part name="dataInicial" type="s:string" />
+    <wsdl:part name="dataFinal" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarProcessosDataManutencaoHttpPostOut">
+    <wsdl:part name="Body" element="tns:BusinessResponseOfListOfProcessoMarcaDataManutencaoDTO" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarProcessosIdEnvolvidoHttpPostIn">
+    <wsdl:part name="usuario" type="s:string" />
+    <wsdl:part name="senha" type="s:string" />
+    <wsdl:part name="idDoEnvolvido" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarProcessosIdEnvolvidoHttpPostOut">
+    <wsdl:part name="Body" element="tns:BusinessResponseOfListOfProcesssoMarcaIdDTO" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarProcessosCnpjCpfInpiEnvolvidoHttpPostIn">
+    <wsdl:part name="usuario" type="s:string" />
+    <wsdl:part name="senha" type="s:string" />
+    <wsdl:part name="cnpjCpfInpi" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarProcessosCnpjCpfInpiEnvolvidoHttpPostOut">
+    <wsdl:part name="Body" element="tns:BusinessResponseOfListOfProcesssoMarcaIdDTO" />
+  </wsdl:message>
+  <wsdl:message name="ExcluirProcessoHttpPostIn">
+    <wsdl:part name="usuario" type="s:string" />
+    <wsdl:part name="senha" type="s:string" />
+    <wsdl:part name="numeroDoProcesso" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ExcluirProcessoHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="InserirEnvolvidoHttpPostIn">
+    <wsdl:part name="usuario" type="s:string" />
+    <wsdl:part name="senha" type="s:string" />
+    <wsdl:part name="idProcesso" type="s:string" />
+    <wsdl:part name="idEnvolvido" type="s:string" />
+    <wsdl:part name="idTipoEnvolvido" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="InserirEnvolvidoHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="AlterarEnvolvidoHttpPostIn">
+    <wsdl:part name="usuario" type="s:string" />
+    <wsdl:part name="senha" type="s:string" />
+    <wsdl:part name="idProcesso" type="s:string" />
+    <wsdl:part name="idEnvolvido" type="s:string" />
+    <wsdl:part name="idTipoEnvolvido" type="s:string" />
+    <wsdl:part name="idNovoEnvolvido" type="s:string" />
+    <wsdl:part name="idTipoNovoEnvolvido" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AlterarEnvolvidoHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="ExcluirEnvolvidoHttpPostIn">
+    <wsdl:part name="usuario" type="s:string" />
+    <wsdl:part name="senha" type="s:string" />
+    <wsdl:part name="idProcesso" type="s:string" />
+    <wsdl:part name="idEnvolvido" type="s:string" />
+    <wsdl:part name="idTipoEnvolvido" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ExcluirEnvolvidoHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="InserirProcessoPorPeticaoBase64HttpPostIn">
+    <wsdl:part name="usuario" type="s:string" />
+    <wsdl:part name="senha" type="s:string" />
+    <wsdl:part name="nomeArquivo" type="s:string" />
+    <wsdl:part name="conteudoArquivo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="InserirProcessoPorPeticaoBase64HttpPostOut">
+    <wsdl:part name="Body" element="tns:BusinessResponseOfString" />
+  </wsdl:message>
+  <wsdl:message name="InserirProcessoPorPeticaoDeDepositoHttpPostIn">
+    <wsdl:part name="usuario" type="s:string" />
+    <wsdl:part name="senha" type="s:string" />
+    <wsdl:part name="arquivo" type="s:string" />
+    <wsdl:part name="arrBytesArquivo" type="s1:StringArray" />
+  </wsdl:message>
+  <wsdl:message name="InserirProcessoPorPeticaoDeDepositoHttpPostOut">
+    <wsdl:part name="Body" element="tns:BusinessResponseOfString" />
+  </wsdl:message>
+  <wsdl:message name="AtualizarProcessoNpPorPDFHttpPostIn">
+    <wsdl:part name="idProcesso" type="s:string" />
+    <wsdl:part name="usuario" type="s:string" />
+    <wsdl:part name="senha" type="s:string" />
+    <wsdl:part name="arquivo" type="s:string" />
+    <wsdl:part name="sistema" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AtualizarProcessoNpPorPDFHttpPostOut">
+    <wsdl:part name="Body" element="tns:BusinessResponseOfString" />
+  </wsdl:message>
+  <wsdl:message name="InserirProcessoPorPDFHttpPostIn">
+    <wsdl:part name="usuario" type="s:string" />
+    <wsdl:part name="senha" type="s:string" />
+    <wsdl:part name="arquivo" type="s:string" />
+    <wsdl:part name="responsavel" type="s:string" />
+    <wsdl:part name="tipoEnvolvido" type="s:string" />
+    <wsdl:part name="envolvido" type="s:string" />
+    <wsdl:part name="sistema" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="InserirProcessoPorPDFHttpPostOut">
+    <wsdl:part name="Body" element="tns:BusinessResponseOfString" />
+  </wsdl:message>
+  <wsdl:message name="EnviarPeticaoComErroHttpPostIn">
+    <wsdl:part name="usuario" type="s:string" />
+    <wsdl:part name="senha" type="s:string" />
+    <wsdl:part name="arquivo" type="s:string" />
+    <wsdl:part name="sistema" type="s:string" />
+    <wsdl:part name="erro" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="EnviarPeticaoComErroHttpPostOut">
+    <wsdl:part name="Body" element="tns:BusinessResponseOfString" />
+  </wsdl:message>
+  <wsdl:portType name="wsProcessoMarcaSoap">
+    <wsdl:operation name="InserirProcesso">
+      <wsdl:input message="tns:InserirProcessoSoapIn" />
+      <wsdl:output message="tns:InserirProcessoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarProcesso">
+      <wsdl:input message="tns:ConsultarProcessoSoapIn" />
+      <wsdl:output message="tns:ConsultarProcessoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObterProcessosNaoSincronizados">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obter processos disponíveis para sincronização</wsdl:documentation>
+      <wsdl:input message="tns:ObterProcessosNaoSincronizadosSoapIn" />
+      <wsdl:output message="tns:ObterProcessosNaoSincronizadosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InformarSincronizacao">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Informa a sincronização do Processo</wsdl:documentation>
+      <wsdl:input message="tns:InformarSincronizacaoSoapIn" />
+      <wsdl:output message="tns:InformarSincronizacaoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarProcessoSemPDF">
+      <wsdl:input message="tns:ConsultarProcessoSemPDFSoapIn" />
+      <wsdl:output message="tns:ConsultarProcessoSemPDFSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarProcessoPorIdSemPDF">
+      <wsdl:input message="tns:ConsultarProcessoPorIdSemPDFSoapIn" />
+      <wsdl:output message="tns:ConsultarProcessoPorIdSemPDFSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarColidenciasSelecionadas">
+      <wsdl:input message="tns:ConsultarColidenciasSelecionadasSoapIn" />
+      <wsdl:output message="tns:ConsultarColidenciasSelecionadasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarProcessoPasta">
+      <wsdl:input message="tns:ConsultarProcessoPastaSoapIn" />
+      <wsdl:output message="tns:ConsultarProcessoPastaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarProcessoPastaSemPDF">
+      <wsdl:input message="tns:ConsultarProcessoPastaSemPDFSoapIn" />
+      <wsdl:output message="tns:ConsultarProcessoPastaSemPDFSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarProcessosDataCadastro">
+      <wsdl:input message="tns:ConsultarProcessosDataCadastroSoapIn" />
+      <wsdl:output message="tns:ConsultarProcessosDataCadastroSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarProcessosDataManutencao">
+      <wsdl:input message="tns:ConsultarProcessosDataManutencaoSoapIn" />
+      <wsdl:output message="tns:ConsultarProcessosDataManutencaoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarProcessosIdEnvolvido">
+      <wsdl:input message="tns:ConsultarProcessosIdEnvolvidoSoapIn" />
+      <wsdl:output message="tns:ConsultarProcessosIdEnvolvidoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarProcessosCnpjCpfInpiEnvolvido">
+      <wsdl:input message="tns:ConsultarProcessosCnpjCpfInpiEnvolvidoSoapIn" />
+      <wsdl:output message="tns:ConsultarProcessosCnpjCpfInpiEnvolvidoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExcluirProcesso">
+      <wsdl:input message="tns:ExcluirProcessoSoapIn" />
+      <wsdl:output message="tns:ExcluirProcessoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AlterarProcesso">
+      <wsdl:input message="tns:AlterarProcessoSoapIn" />
+      <wsdl:output message="tns:AlterarProcessoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AlterarProcessoPorId">
+      <wsdl:input message="tns:AlterarProcessoPorIdSoapIn" />
+      <wsdl:output message="tns:AlterarProcessoPorIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InserirEnvolvido">
+      <wsdl:input message="tns:InserirEnvolvidoSoapIn" />
+      <wsdl:output message="tns:InserirEnvolvidoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AlterarEnvolvido">
+      <wsdl:input message="tns:AlterarEnvolvidoSoapIn" />
+      <wsdl:output message="tns:AlterarEnvolvidoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExcluirEnvolvido">
+      <wsdl:input message="tns:ExcluirEnvolvidoSoapIn" />
+      <wsdl:output message="tns:ExcluirEnvolvidoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InserirProcessoPorPeticaoBase64">
+      <wsdl:input message="tns:InserirProcessoPorPeticaoBase64SoapIn" />
+      <wsdl:output message="tns:InserirProcessoPorPeticaoBase64SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InserirProcessoPorPeticaoDeDeposito">
+      <wsdl:input message="tns:InserirProcessoPorPeticaoDeDepositoSoapIn" />
+      <wsdl:output message="tns:InserirProcessoPorPeticaoDeDepositoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AtualizarProcessoNpPorPDF">
+      <wsdl:input message="tns:AtualizarProcessoNpPorPDFSoapIn" />
+      <wsdl:output message="tns:AtualizarProcessoNpPorPDFSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InserirProcessoPorPDF">
+      <wsdl:input message="tns:InserirProcessoPorPDFSoapIn" />
+      <wsdl:output message="tns:InserirProcessoPorPDFSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EnviarPeticaoComErro">
+      <wsdl:input message="tns:EnviarPeticaoComErroSoapIn" />
+      <wsdl:output message="tns:EnviarPeticaoComErroSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InserirPeticao">
+      <wsdl:input message="tns:InserirPeticaoSoapIn" />
+      <wsdl:output message="tns:InserirPeticaoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="wsProcessoMarcaHttpGet">
+    <wsdl:operation name="ConsultarProcesso">
+      <wsdl:input message="tns:ConsultarProcessoHttpGetIn" />
+      <wsdl:output message="tns:ConsultarProcessoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObterProcessosNaoSincronizados">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obter processos disponíveis para sincronização</wsdl:documentation>
+      <wsdl:input message="tns:ObterProcessosNaoSincronizadosHttpGetIn" />
+      <wsdl:output message="tns:ObterProcessosNaoSincronizadosHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InformarSincronizacao">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Informa a sincronização do Processo</wsdl:documentation>
+      <wsdl:input message="tns:InformarSincronizacaoHttpGetIn" />
+      <wsdl:output message="tns:InformarSincronizacaoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarProcessoSemPDF">
+      <wsdl:input message="tns:ConsultarProcessoSemPDFHttpGetIn" />
+      <wsdl:output message="tns:ConsultarProcessoSemPDFHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarProcessoPorIdSemPDF">
+      <wsdl:input message="tns:ConsultarProcessoPorIdSemPDFHttpGetIn" />
+      <wsdl:output message="tns:ConsultarProcessoPorIdSemPDFHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarColidenciasSelecionadas">
+      <wsdl:input message="tns:ConsultarColidenciasSelecionadasHttpGetIn" />
+      <wsdl:output message="tns:ConsultarColidenciasSelecionadasHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarProcessoPasta">
+      <wsdl:input message="tns:ConsultarProcessoPastaHttpGetIn" />
+      <wsdl:output message="tns:ConsultarProcessoPastaHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarProcessoPastaSemPDF">
+      <wsdl:input message="tns:ConsultarProcessoPastaSemPDFHttpGetIn" />
+      <wsdl:output message="tns:ConsultarProcessoPastaSemPDFHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarProcessosDataCadastro">
+      <wsdl:input message="tns:ConsultarProcessosDataCadastroHttpGetIn" />
+      <wsdl:output message="tns:ConsultarProcessosDataCadastroHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarProcessosDataManutencao">
+      <wsdl:input message="tns:ConsultarProcessosDataManutencaoHttpGetIn" />
+      <wsdl:output message="tns:ConsultarProcessosDataManutencaoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarProcessosIdEnvolvido">
+      <wsdl:input message="tns:ConsultarProcessosIdEnvolvidoHttpGetIn" />
+      <wsdl:output message="tns:ConsultarProcessosIdEnvolvidoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarProcessosCnpjCpfInpiEnvolvido">
+      <wsdl:input message="tns:ConsultarProcessosCnpjCpfInpiEnvolvidoHttpGetIn" />
+      <wsdl:output message="tns:ConsultarProcessosCnpjCpfInpiEnvolvidoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExcluirProcesso">
+      <wsdl:input message="tns:ExcluirProcessoHttpGetIn" />
+      <wsdl:output message="tns:ExcluirProcessoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InserirEnvolvido">
+      <wsdl:input message="tns:InserirEnvolvidoHttpGetIn" />
+      <wsdl:output message="tns:InserirEnvolvidoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AlterarEnvolvido">
+      <wsdl:input message="tns:AlterarEnvolvidoHttpGetIn" />
+      <wsdl:output message="tns:AlterarEnvolvidoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExcluirEnvolvido">
+      <wsdl:input message="tns:ExcluirEnvolvidoHttpGetIn" />
+      <wsdl:output message="tns:ExcluirEnvolvidoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InserirProcessoPorPeticaoBase64">
+      <wsdl:input message="tns:InserirProcessoPorPeticaoBase64HttpGetIn" />
+      <wsdl:output message="tns:InserirProcessoPorPeticaoBase64HttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InserirProcessoPorPeticaoDeDeposito">
+      <wsdl:input message="tns:InserirProcessoPorPeticaoDeDepositoHttpGetIn" />
+      <wsdl:output message="tns:InserirProcessoPorPeticaoDeDepositoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AtualizarProcessoNpPorPDF">
+      <wsdl:input message="tns:AtualizarProcessoNpPorPDFHttpGetIn" />
+      <wsdl:output message="tns:AtualizarProcessoNpPorPDFHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InserirProcessoPorPDF">
+      <wsdl:input message="tns:InserirProcessoPorPDFHttpGetIn" />
+      <wsdl:output message="tns:InserirProcessoPorPDFHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EnviarPeticaoComErro">
+      <wsdl:input message="tns:EnviarPeticaoComErroHttpGetIn" />
+      <wsdl:output message="tns:EnviarPeticaoComErroHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="wsProcessoMarcaHttpPost">
+    <wsdl:operation name="ConsultarProcesso">
+      <wsdl:input message="tns:ConsultarProcessoHttpPostIn" />
+      <wsdl:output message="tns:ConsultarProcessoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObterProcessosNaoSincronizados">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obter processos disponíveis para sincronização</wsdl:documentation>
+      <wsdl:input message="tns:ObterProcessosNaoSincronizadosHttpPostIn" />
+      <wsdl:output message="tns:ObterProcessosNaoSincronizadosHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InformarSincronizacao">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Informa a sincronização do Processo</wsdl:documentation>
+      <wsdl:input message="tns:InformarSincronizacaoHttpPostIn" />
+      <wsdl:output message="tns:InformarSincronizacaoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarProcessoSemPDF">
+      <wsdl:input message="tns:ConsultarProcessoSemPDFHttpPostIn" />
+      <wsdl:output message="tns:ConsultarProcessoSemPDFHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarProcessoPorIdSemPDF">
+      <wsdl:input message="tns:ConsultarProcessoPorIdSemPDFHttpPostIn" />
+      <wsdl:output message="tns:ConsultarProcessoPorIdSemPDFHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarColidenciasSelecionadas">
+      <wsdl:input message="tns:ConsultarColidenciasSelecionadasHttpPostIn" />
+      <wsdl:output message="tns:ConsultarColidenciasSelecionadasHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarProcessoPasta">
+      <wsdl:input message="tns:ConsultarProcessoPastaHttpPostIn" />
+      <wsdl:output message="tns:ConsultarProcessoPastaHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarProcessoPastaSemPDF">
+      <wsdl:input message="tns:ConsultarProcessoPastaSemPDFHttpPostIn" />
+      <wsdl:output message="tns:ConsultarProcessoPastaSemPDFHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarProcessosDataCadastro">
+      <wsdl:input message="tns:ConsultarProcessosDataCadastroHttpPostIn" />
+      <wsdl:output message="tns:ConsultarProcessosDataCadastroHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarProcessosDataManutencao">
+      <wsdl:input message="tns:ConsultarProcessosDataManutencaoHttpPostIn" />
+      <wsdl:output message="tns:ConsultarProcessosDataManutencaoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarProcessosIdEnvolvido">
+      <wsdl:input message="tns:ConsultarProcessosIdEnvolvidoHttpPostIn" />
+      <wsdl:output message="tns:ConsultarProcessosIdEnvolvidoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarProcessosCnpjCpfInpiEnvolvido">
+      <wsdl:input message="tns:ConsultarProcessosCnpjCpfInpiEnvolvidoHttpPostIn" />
+      <wsdl:output message="tns:ConsultarProcessosCnpjCpfInpiEnvolvidoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExcluirProcesso">
+      <wsdl:input message="tns:ExcluirProcessoHttpPostIn" />
+      <wsdl:output message="tns:ExcluirProcessoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InserirEnvolvido">
+      <wsdl:input message="tns:InserirEnvolvidoHttpPostIn" />
+      <wsdl:output message="tns:InserirEnvolvidoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AlterarEnvolvido">
+      <wsdl:input message="tns:AlterarEnvolvidoHttpPostIn" />
+      <wsdl:output message="tns:AlterarEnvolvidoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExcluirEnvolvido">
+      <wsdl:input message="tns:ExcluirEnvolvidoHttpPostIn" />
+      <wsdl:output message="tns:ExcluirEnvolvidoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InserirProcessoPorPeticaoBase64">
+      <wsdl:input message="tns:InserirProcessoPorPeticaoBase64HttpPostIn" />
+      <wsdl:output message="tns:InserirProcessoPorPeticaoBase64HttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InserirProcessoPorPeticaoDeDeposito">
+      <wsdl:input message="tns:InserirProcessoPorPeticaoDeDepositoHttpPostIn" />
+      <wsdl:output message="tns:InserirProcessoPorPeticaoDeDepositoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AtualizarProcessoNpPorPDF">
+      <wsdl:input message="tns:AtualizarProcessoNpPorPDFHttpPostIn" />
+      <wsdl:output message="tns:AtualizarProcessoNpPorPDFHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InserirProcessoPorPDF">
+      <wsdl:input message="tns:InserirProcessoPorPDFHttpPostIn" />
+      <wsdl:output message="tns:InserirProcessoPorPDFHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EnviarPeticaoComErro">
+      <wsdl:input message="tns:EnviarPeticaoComErroHttpPostIn" />
+      <wsdl:output message="tns:EnviarPeticaoComErroHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="wsProcessoMarcaSoap" type="tns:wsProcessoMarcaSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="InserirProcesso">
+      <soap:operation soapAction="http://ld2.ldsoft.com.br//InserirProcesso" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarProcesso">
+      <soap:operation soapAction="http://ld2.ldsoft.com.br//ConsultarProcesso" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObterProcessosNaoSincronizados">
+      <soap:operation soapAction="http://ld2.ldsoft.com.br//ObterProcessosNaoSincronizados" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InformarSincronizacao">
+      <soap:operation soapAction="http://ld2.ldsoft.com.br//InformarSincronizacao" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarProcessoSemPDF">
+      <soap:operation soapAction="http://ld2.ldsoft.com.br//ConsultarProcessoSemPDF" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarProcessoPorIdSemPDF">
+      <soap:operation soapAction="http://ld2.ldsoft.com.br//ConsultarProcessoPorIdSemPDF" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarColidenciasSelecionadas">
+      <soap:operation soapAction="http://ld2.ldsoft.com.br//ConsultarColidenciasSelecionadas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarProcessoPasta">
+      <soap:operation soapAction="http://ld2.ldsoft.com.br//ConsultarProcessoPasta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarProcessoPastaSemPDF">
+      <soap:operation soapAction="http://ld2.ldsoft.com.br//ConsultarProcessoPastaSemPDF" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarProcessosDataCadastro">
+      <soap:operation soapAction="http://ld2.ldsoft.com.br//ConsultarProcessosDataCadastro" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarProcessosDataManutencao">
+      <soap:operation soapAction="http://ld2.ldsoft.com.br//ConsultarProcessosDataManutencao" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarProcessosIdEnvolvido">
+      <soap:operation soapAction="http://ld2.ldsoft.com.br//ConsultarProcessosIdEnvolvido" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarProcessosCnpjCpfInpiEnvolvido">
+      <soap:operation soapAction="http://ld2.ldsoft.com.br//ConsultarProcessosCnpjCpfInpiEnvolvido" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExcluirProcesso">
+      <soap:operation soapAction="http://ld2.ldsoft.com.br//ExcluirProcesso" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarProcesso">
+      <soap:operation soapAction="http://ld2.ldsoft.com.br//AlterarProcesso" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarProcessoPorId">
+      <soap:operation soapAction="http://ld2.ldsoft.com.br//AlterarProcessoPorId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InserirEnvolvido">
+      <soap:operation soapAction="http://ld2.ldsoft.com.br//InserirEnvolvido" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarEnvolvido">
+      <soap:operation soapAction="http://ld2.ldsoft.com.br//AlterarEnvolvido" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExcluirEnvolvido">
+      <soap:operation soapAction="http://ld2.ldsoft.com.br//ExcluirEnvolvido" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InserirProcessoPorPeticaoBase64">
+      <soap:operation soapAction="http://ld2.ldsoft.com.br//InserirProcessoPorPeticaoBase64" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InserirProcessoPorPeticaoDeDeposito">
+      <soap:operation soapAction="http://ld2.ldsoft.com.br//InserirProcessoPorPeticaoDeDeposito" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AtualizarProcessoNpPorPDF">
+      <soap:operation soapAction="http://ld2.ldsoft.com.br//AtualizarProcessoNpPorPDF" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InserirProcessoPorPDF">
+      <soap:operation soapAction="http://ld2.ldsoft.com.br//InserirProcessoPorPDF" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnviarPeticaoComErro">
+      <soap:operation soapAction="http://ld2.ldsoft.com.br//EnviarPeticaoComErro" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InserirPeticao">
+      <soap:operation soapAction="http://ld2.ldsoft.com.br//InserirPeticao" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="wsProcessoMarcaSoap12" type="tns:wsProcessoMarcaSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="InserirProcesso">
+      <soap12:operation soapAction="http://ld2.ldsoft.com.br//InserirProcesso" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarProcesso">
+      <soap12:operation soapAction="http://ld2.ldsoft.com.br//ConsultarProcesso" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObterProcessosNaoSincronizados">
+      <soap12:operation soapAction="http://ld2.ldsoft.com.br//ObterProcessosNaoSincronizados" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InformarSincronizacao">
+      <soap12:operation soapAction="http://ld2.ldsoft.com.br//InformarSincronizacao" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarProcessoSemPDF">
+      <soap12:operation soapAction="http://ld2.ldsoft.com.br//ConsultarProcessoSemPDF" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarProcessoPorIdSemPDF">
+      <soap12:operation soapAction="http://ld2.ldsoft.com.br//ConsultarProcessoPorIdSemPDF" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarColidenciasSelecionadas">
+      <soap12:operation soapAction="http://ld2.ldsoft.com.br//ConsultarColidenciasSelecionadas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarProcessoPasta">
+      <soap12:operation soapAction="http://ld2.ldsoft.com.br//ConsultarProcessoPasta" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarProcessoPastaSemPDF">
+      <soap12:operation soapAction="http://ld2.ldsoft.com.br//ConsultarProcessoPastaSemPDF" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarProcessosDataCadastro">
+      <soap12:operation soapAction="http://ld2.ldsoft.com.br//ConsultarProcessosDataCadastro" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarProcessosDataManutencao">
+      <soap12:operation soapAction="http://ld2.ldsoft.com.br//ConsultarProcessosDataManutencao" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarProcessosIdEnvolvido">
+      <soap12:operation soapAction="http://ld2.ldsoft.com.br//ConsultarProcessosIdEnvolvido" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarProcessosCnpjCpfInpiEnvolvido">
+      <soap12:operation soapAction="http://ld2.ldsoft.com.br//ConsultarProcessosCnpjCpfInpiEnvolvido" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExcluirProcesso">
+      <soap12:operation soapAction="http://ld2.ldsoft.com.br//ExcluirProcesso" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarProcesso">
+      <soap12:operation soapAction="http://ld2.ldsoft.com.br//AlterarProcesso" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarProcessoPorId">
+      <soap12:operation soapAction="http://ld2.ldsoft.com.br//AlterarProcessoPorId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InserirEnvolvido">
+      <soap12:operation soapAction="http://ld2.ldsoft.com.br//InserirEnvolvido" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarEnvolvido">
+      <soap12:operation soapAction="http://ld2.ldsoft.com.br//AlterarEnvolvido" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExcluirEnvolvido">
+      <soap12:operation soapAction="http://ld2.ldsoft.com.br//ExcluirEnvolvido" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InserirProcessoPorPeticaoBase64">
+      <soap12:operation soapAction="http://ld2.ldsoft.com.br//InserirProcessoPorPeticaoBase64" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InserirProcessoPorPeticaoDeDeposito">
+      <soap12:operation soapAction="http://ld2.ldsoft.com.br//InserirProcessoPorPeticaoDeDeposito" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AtualizarProcessoNpPorPDF">
+      <soap12:operation soapAction="http://ld2.ldsoft.com.br//AtualizarProcessoNpPorPDF" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InserirProcessoPorPDF">
+      <soap12:operation soapAction="http://ld2.ldsoft.com.br//InserirProcessoPorPDF" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnviarPeticaoComErro">
+      <soap12:operation soapAction="http://ld2.ldsoft.com.br//EnviarPeticaoComErro" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InserirPeticao">
+      <soap12:operation soapAction="http://ld2.ldsoft.com.br//InserirPeticao" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="wsProcessoMarcaHttpGet" type="tns:wsProcessoMarcaHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="ConsultarProcesso">
+      <http:operation location="/ConsultarProcesso" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObterProcessosNaoSincronizados">
+      <http:operation location="/ObterProcessosNaoSincronizados" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InformarSincronizacao">
+      <http:operation location="/InformarSincronizacao" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarProcessoSemPDF">
+      <http:operation location="/ConsultarProcessoSemPDF" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarProcessoPorIdSemPDF">
+      <http:operation location="/ConsultarProcessoPorIdSemPDF" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarColidenciasSelecionadas">
+      <http:operation location="/ConsultarColidenciasSelecionadas" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarProcessoPasta">
+      <http:operation location="/ConsultarProcessoPasta" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarProcessoPastaSemPDF">
+      <http:operation location="/ConsultarProcessoPastaSemPDF" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarProcessosDataCadastro">
+      <http:operation location="/ConsultarProcessosDataCadastro" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarProcessosDataManutencao">
+      <http:operation location="/ConsultarProcessosDataManutencao" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarProcessosIdEnvolvido">
+      <http:operation location="/ConsultarProcessosIdEnvolvido" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarProcessosCnpjCpfInpiEnvolvido">
+      <http:operation location="/ConsultarProcessosCnpjCpfInpiEnvolvido" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExcluirProcesso">
+      <http:operation location="/ExcluirProcesso" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InserirEnvolvido">
+      <http:operation location="/InserirEnvolvido" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarEnvolvido">
+      <http:operation location="/AlterarEnvolvido" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExcluirEnvolvido">
+      <http:operation location="/ExcluirEnvolvido" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InserirProcessoPorPeticaoBase64">
+      <http:operation location="/InserirProcessoPorPeticaoBase64" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InserirProcessoPorPeticaoDeDeposito">
+      <http:operation location="/InserirProcessoPorPeticaoDeDeposito" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AtualizarProcessoNpPorPDF">
+      <http:operation location="/AtualizarProcessoNpPorPDF" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InserirProcessoPorPDF">
+      <http:operation location="/InserirProcessoPorPDF" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnviarPeticaoComErro">
+      <http:operation location="/EnviarPeticaoComErro" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="wsProcessoMarcaHttpPost" type="tns:wsProcessoMarcaHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="ConsultarProcesso">
+      <http:operation location="/ConsultarProcesso" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObterProcessosNaoSincronizados">
+      <http:operation location="/ObterProcessosNaoSincronizados" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InformarSincronizacao">
+      <http:operation location="/InformarSincronizacao" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarProcessoSemPDF">
+      <http:operation location="/ConsultarProcessoSemPDF" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarProcessoPorIdSemPDF">
+      <http:operation location="/ConsultarProcessoPorIdSemPDF" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarColidenciasSelecionadas">
+      <http:operation location="/ConsultarColidenciasSelecionadas" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarProcessoPasta">
+      <http:operation location="/ConsultarProcessoPasta" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarProcessoPastaSemPDF">
+      <http:operation location="/ConsultarProcessoPastaSemPDF" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarProcessosDataCadastro">
+      <http:operation location="/ConsultarProcessosDataCadastro" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarProcessosDataManutencao">
+      <http:operation location="/ConsultarProcessosDataManutencao" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarProcessosIdEnvolvido">
+      <http:operation location="/ConsultarProcessosIdEnvolvido" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarProcessosCnpjCpfInpiEnvolvido">
+      <http:operation location="/ConsultarProcessosCnpjCpfInpiEnvolvido" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExcluirProcesso">
+      <http:operation location="/ExcluirProcesso" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InserirEnvolvido">
+      <http:operation location="/InserirEnvolvido" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarEnvolvido">
+      <http:operation location="/AlterarEnvolvido" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExcluirEnvolvido">
+      <http:operation location="/ExcluirEnvolvido" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InserirProcessoPorPeticaoBase64">
+      <http:operation location="/InserirProcessoPorPeticaoBase64" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InserirProcessoPorPeticaoDeDeposito">
+      <http:operation location="/InserirProcessoPorPeticaoDeDeposito" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AtualizarProcessoNpPorPDF">
+      <http:operation location="/AtualizarProcessoNpPorPDF" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InserirProcessoPorPDF">
+      <http:operation location="/InserirProcessoPorPDF" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnviarPeticaoComErro">
+      <http:operation location="/EnviarPeticaoComErro" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="wsProcessoMarca">
+    <wsdl:port name="wsProcessoMarcaSoap" binding="tns:wsProcessoMarcaSoap">
+      <soap:address location="https://ld2.ldsoft.com.br/webservices/wsProcessos/wsProcessoMarca.asmx" />
+    </wsdl:port>
+    <wsdl:port name="wsProcessoMarcaSoap12" binding="tns:wsProcessoMarcaSoap12">
+      <soap12:address location="https://ld2.ldsoft.com.br/webservices/wsProcessos/wsProcessoMarca.asmx" />
+    </wsdl:port>
+    <wsdl:port name="wsProcessoMarcaHttpGet" binding="tns:wsProcessoMarcaHttpGet">
+      <http:address location="https://ld2.ldsoft.com.br/webservices/wsProcessos/wsProcessoMarca.asmx" />
+    </wsdl:port>
+    <wsdl:port name="wsProcessoMarcaHttpPost" binding="tns:wsProcessoMarcaHttpPost">
+      <http:address location="https://ld2.ldsoft.com.br/webservices/wsProcessos/wsProcessoMarca.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

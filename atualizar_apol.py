@@ -2,14 +2,12 @@ import sqlite3
 from datetime import datetime
 
 from apol_client import ApolClient
-from apol_transform import (
-    transformar_processos,
-    transformar_envolvidos
+from apol_database import (
+    BANCO,
+    salvar_dados_incremental,
+    salvar_detalhe_processo
 )
 from apol_sync import obter_ids_sincronizacao
-
-
-BANCO = "apol.db"
 
 
 def existem_processos(dados):
@@ -22,80 +20,57 @@ def existem_processos(dados):
     ])
 
 
-def salvar_dados(dados):
+def atualizar_detalhes_processos(cliente):
+    """
+    Busca o detalhe completo (Consultar Processo, via SOAP) de
+    TODOS os processos de marca ja salvos no banco, e grava
+    deposito, despachos, ocorrencias e providencias de cada um.
 
-    df_processos = transformar_processos(dados)
-    df_envolvidos = transformar_envolvidos(dados)
+    Roda em toda atualizacao, independente de ter havido
+    processo novo/alterado no endpoint unificado, para manter
+    o dashboard sempre com o detalhe completo em dia.
 
-    if df_processos.empty:
-        return 0, 0
-
-    df_processos = df_processos.drop(
-        columns=["Envolvidos"],
-        errors="ignore"
-    )
+    Processos com erro sao pulados (log no console) sem
+    interromper os demais.
+    """
 
     conexao = sqlite3.connect(BANCO)
 
     try:
-
-        for _, linha in df_processos.iterrows():
-
-            conexao.execute("""
-                INSERT INTO processos (
-                    Id,
-                    NumeroDoProcesso,
-                    Terceiro,
-                    Natureza,
-                    Especificacao,
-                    Marca,
-                    Classe,
-                    Situacao,
-                    Titular,
-                    Pasta,
-                    Referencia,
-                    PaisDeOrigem,
-                    Status
-                )
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-
-                ON CONFLICT(Id) DO UPDATE SET
-                    NumeroDoProcesso = excluded.NumeroDoProcesso,
-                    Terceiro = excluded.Terceiro,
-                    Natureza = excluded.Natureza,
-                    Especificacao = excluded.Especificacao,
-                    Marca = excluded.Marca,
-                    Classe = excluded.Classe,
-                    Situacao = excluded.Situacao,
-                    Titular = excluded.Titular,
-                    Pasta = excluded.Pasta,
-                    Referencia = excluded.Referencia,
-                    PaisDeOrigem = excluded.PaisDeOrigem,
-                    Status = excluded.Status
-            """, tuple(linha))
-
-        for _, linha in df_envolvidos.iterrows():
-
-            conexao.execute("""
-                INSERT OR IGNORE INTO processos_envolvidos (
-                    ProcessoId,
-                    EnvolvidoId,
-                    TipoEnvolvido
-                )
-                VALUES (?, ?, ?)
-            """, (
-                linha["ProcessoId"],
-                linha["EnvolvidoId"],
-                linha["TipoEnvolvido"]
-            ))
-
-        conexao.commit()
-
+        processos = conexao.execute(
+            "SELECT Id, NumeroDoProcesso FROM processos "
+            "WHERE NumeroDoProcesso IS NOT NULL "
+            "AND NumeroDoProcesso != ''"
+        ).fetchall()
     finally:
-
         conexao.close()
 
-    return len(df_processos), len(df_envolvidos)
+    sucesso = 0
+    falha = 0
+
+    for id_processo, numero_processo in processos:
+
+        try:
+
+            bruto = cliente.consultar_processo_marca(
+                numero_processo
+            )
+            detalhe = ApolClient.extrair_response(bruto)
+
+            salvar_detalhe_processo(id_processo, detalhe)
+
+            sucesso += 1
+
+        except Exception as erro:
+
+            falha += 1
+
+            print(
+                f"  [detalhe] Falha no processo "
+                f"{numero_processo} (Id {id_processo}): {erro}"
+            )
+
+    return sucesso, falha
 
 
 if __name__ == "__main__":
@@ -133,7 +108,7 @@ if __name__ == "__main__":
         else:
 
             # 4. Salva os dados
-            processos, envolvidos = salvar_dados(dados)
+            processos, envolvidos = salvar_dados_incremental(dados)
 
             print("\nProcessos processados:")
             print(processos)
@@ -168,13 +143,27 @@ if __name__ == "__main__":
             if resposta.get("Sucesso"):
 
                 print("\nATUALIZAÇÃO CONCLUÍDA.")
-
             else:
 
                 print(
                     "\nATENÇÃO: "
                     "o APOL não confirmou a sincronização."
                 )
+
+        # 7. Atualiza o detalhe completo (depósito, despachos,
+        # ocorrências e providências) de TODOS os processos de
+        # marca já salvos, para o dashboard ficar sempre em dia.
+        # Roda sempre, mesmo sem processo novo/alterado no passo 3.
+        print("\n" + "=" * 60)
+        print("ATUALIZANDO DETALHE DOS PROCESSOS DE MARCA")
+        print("=" * 60)
+
+        sucesso_detalhe, falha_detalhe = atualizar_detalhes_processos(
+            cliente
+        )
+
+        print("\nDetalhes atualizados com sucesso:", sucesso_detalhe)
+        print("Detalhes com falha:", falha_detalhe)
 
     except Exception as erro:
 

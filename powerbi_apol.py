@@ -25,6 +25,30 @@ try:
         conexao
     )
 
+    df_despachos = pd.read_sql_query(
+        """
+        SELECT *
+        FROM vw_despachos
+        """,
+        conexao
+    )
+
+    df_ocorrencias = pd.read_sql_query(
+        """
+        SELECT *
+        FROM vw_ocorrencias
+        """,
+        conexao
+    )
+
+    df_providencias = pd.read_sql_query(
+        """
+        SELECT *
+        FROM vw_providencias
+        """,
+        conexao
+    )
+
 finally:
 
     conexao.close()

@@ -1,0 +1,1294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>ASP.NET Web API Help Page</title>
+    
+</head>
+<body>
+    
+
+<link type="text/css" href="/webservices/Apol/Areas/HelpPage/HelpPage.css" rel="stylesheet" />
+<header class="help-page">
+    <div class="content-wrapper">
+        <div class="float-left">
+            <h1>ASP.NET Web API Help Page</h1>
+        </div>
+    </div>
+</header>
+<div id="body" class="help-page">
+    <section class="featured">
+        <div class="content-wrapper">
+            <h2>Introduction</h2>
+            <p>
+                Provide a general description of your APIs here.
+            </p>
+        </div>
+    </section>
+    <section class="content-wrapper main-content clear-fix">
+
+
+<h2 id="Documento">Documento</h2>
+    <p>Controller onde vai ser concentrado todas as necessidades da base de documentos</p>
+<table class="help-page-table">
+    <thead>
+        <tr><th>API</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-documento-obterDocumento_idDocumento_exibir">GET api/documento/obterDocumento?idDocumento={idDocumento}&amp;exibir={exibir}</a></td>
+            <td class="api-documentation">
+                <p>Obt&#233;m o documento definido.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-documento-obterDocumentoImagem_idDocumento_exibir">GET api/documento/obterDocumentoImagem?idDocumento={idDocumento}&amp;exibir={exibir}</a></td>
+            <td class="api-documentation">
+                <p>Obt&#233;m o documento definido.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/POST-api-documento-criarDocumentos">POST api/documento/criarDocumentos</a></td>
+            <td class="api-documentation">
+                <p>Cria os documentos enviados na base</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-documento-obterTamanhoContainer">GET api/documento/obterTamanhoContainer</a></td>
+            <td class="api-documentation">
+                <p>Obter tamanho do container</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-documento-excluirDocumento_idDocumento">GET api/documento/excluirDocumento?idDocumento={idDocumento}</a></td>
+            <td class="api-documentation">
+                <p>Excluir o documento enviado na base do apol e no azure</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/POST-api-documento-desceArquivo">POST api/documento/desceArquivo</a></td>
+            <td class="api-documentation">
+                <p>Descer arquivo da nuvem e inserir na tabela</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-documento-verPDF_nomeArquivo_numeroProcesso_numeroPagina_idPagina_infok_usuario_protocolo">GET api/documento/verPDF?nomeArquivo={nomeArquivo}&amp;numeroProcesso={numeroProcesso}&amp;numeroPagina={numeroPagina}&amp;idPagina={idPagina}&amp;infok={infok}&amp;usuario={usuario}&amp;protocolo={protocolo}</a></td>
+            <td class="api-documentation">
+                <p>No documentation available.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/POST-api-documento-GerarPDFEmLote">POST api/documento/GerarPDFEmLote</a></td>
+            <td class="api-documentation">
+                <p>No documentation available.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-documento-obterPeticao_modulo_protocolo_exibir">GET api/documento/obterPeticao?modulo={modulo}&amp;protocolo={protocolo}&amp;exibir={exibir}</a></td>
+            <td class="api-documentation">
+                <p>Obt&#233;m o documento definido.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-documento-obterDocumentoPatente_nome_tipoArquivo">GET api/documento/obterDocumentoPatente?nome={nome}&amp;tipoArquivo={tipoArquivo}</a></td>
+            <td class="api-documentation">
+                <p>Obt&#233;m o documento definido.</p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<h2 id="MarcaInternacionalExterno">MarcaInternacionalExterno</h2>
+<table class="help-page-table">
+    <thead>
+        <tr><th>API</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-externo-marcainternacional-obterDetalhe_pais_processo">GET api/externo/marcainternacional/obterDetalhe?pais={pais}&amp;processo={processo}</a></td>
+            <td class="api-documentation">
+                <p>Obt&#233;m uma lista de processos de Marcas Internacionais, baseado no pais e numero do processo passado.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-externo-marcainternacional-consultarProcessosIdEnvolvido_idDoEnvolvido">GET api/externo/marcainternacional/consultarProcessosIdEnvolvido?idDoEnvolvido={idDoEnvolvido}</a></td>
+            <td class="api-documentation">
+                <p>Obt&#233;m uma lista de processos de Marcas Internacionais, baseado no identificador do envolvido.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-externo-marcainternacional-consultarProcessosCnpjCpfInpiEnvolvido_cnpjCpfInpi">GET api/externo/marcainternacional/consultarProcessosCnpjCpfInpiEnvolvido?cnpjCpfInpi={cnpjCpfInpi}</a></td>
+            <td class="api-documentation">
+                <p>Obt&#233;m uma lista de processos de Marcas Internacionais, baseado no CNPJ/CPF/INPI do envolvido.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-externo-marcainternacional-obterProcessosPorDataDeCadastro_dateDe_dateAte">GET api/externo/marcainternacional/obterProcessosPorDataDeCadastro?dateDe={dateDe}&amp;dateAte={dateAte}</a></td>
+            <td class="api-documentation">
+                <p>Obt&#233;m uma lista de processos de Marcas Internacionais, baseado nas datas de cadastro inicio e fim que foram passados.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-externo-marcainternacional-obterProcessosPorDataDeManutencao_dateDe_dateAte">GET api/externo/marcainternacional/obterProcessosPorDataDeManutencao?dateDe={dateDe}&amp;dateAte={dateAte}</a></td>
+            <td class="api-documentation">
+                <p>Obt&#233;m uma lista de processos de Marcas Internacionais, baseado nas datas de manuten&#231;&#227;o inicio e fim que foram passados.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-externo-marcainternacional-ObterProcessosNaoSincronizados">GET api/externo/marcainternacional/ObterProcessosNaoSincronizados</a></td>
+            <td class="api-documentation">
+                <p>Obt&#233;m uma lista de processos de Marcas Internacionais dispon&#237;veis para sincroniza&#231;&#227;o.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/POST-api-externo-marcainternacional-InformarSincronizacao">POST api/externo/marcainternacional/InformarSincronizacao</a></td>
+            <td class="api-documentation">
+                <p>Informa que os processos foram sincronizados</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/POST-api-externo-marcainternacional-AtualizaProcesso">POST api/externo/marcainternacional/AtualizaProcesso</a></td>
+            <td class="api-documentation">
+                <p>Atualiza informa&#231;&#245;es do processos</p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<h2 id="CadastroLivreExterno">CadastroLivreExterno</h2>
+<table class="help-page-table">
+    <thead>
+        <tr><th>API</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-externo-cadastrolivre-obterDetalhe_modulo_titulo_texto_numero_registrosPorPagina_paginaAtual">GET api/externo/cadastrolivre/obterDetalhe?modulo={modulo}&amp;titulo={titulo}&amp;texto={texto}&amp;numero={numero}&amp;registrosPorPagina={registrosPorPagina}&amp;paginaAtual={paginaAtual}</a></td>
+            <td class="api-documentation">
+                <p>Obt&#233;m uma lista de cadastros livres, baseado nos parametros passados.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-externo-cadastrolivre-obterDetalhe_modulo_titulo">GET api/externo/cadastrolivre/obterDetalhe?modulo={modulo}&amp;titulo={titulo}</a></td>
+            <td class="api-documentation">
+                <p>Obt&#233;m uma lista de cadastros livres, baseado nos parametros passados.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-externo-cadastrolivre-obterProcessosPorDataDeCadastro_modulo_titulo_dateDe_dateAte_registrosPorPagina_paginaAtual">GET api/externo/cadastrolivre/obterProcessosPorDataDeCadastro?modulo={modulo}&amp;titulo={titulo}&amp;dateDe={dateDe}&amp;dateAte={dateAte}&amp;registrosPorPagina={registrosPorPagina}&amp;paginaAtual={paginaAtual}</a></td>
+            <td class="api-documentation">
+                <p>Obt&#233;m uma lista de cadastros livres, baseado nos parametros passados.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-externo-cadastrolivre-obterProcessosPorDataDeManutencao_modulo_titulo_dateDe_dateAte_registrosPorPagina_paginaAtual">GET api/externo/cadastrolivre/obterProcessosPorDataDeManutencao?modulo={modulo}&amp;titulo={titulo}&amp;dateDe={dateDe}&amp;dateAte={dateAte}&amp;registrosPorPagina={registrosPorPagina}&amp;paginaAtual={paginaAtual}</a></td>
+            <td class="api-documentation">
+                <p>Obt&#233;m uma lista de cadastros livres, baseado nos parametros passados.</p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<h2 id="Personalizado">Personalizado</h2>
+    <p>Controller onde vai ser concentrado todas as necessidades captura de Marcas de Tabaco</p>
+<table class="help-page-table">
+    <thead>
+        <tr><th>API</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-marcasdetabaco-obtermarcasanvisa">GET api/marcasdetabaco/obtermarcasanvisa</a></td>
+            <td class="api-documentation">
+                <p>Obter marcas anvisa.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-marcasdetabaco-obtermarcasreceitafederal">GET api/marcasdetabaco/obtermarcasreceitafederal</a></td>
+            <td class="api-documentation">
+                <p>Obter marcas Receita Federal.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/POST-api-marcasdetabaco-padronizacaotitularesinpi_rpi_token">POST api/marcasdetabaco/padronizacaotitularesinpi?rpi={rpi}&amp;token={token}</a></td>
+            <td class="api-documentation">
+                <p>Padronizar titulares de processo vindo do INPI.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-marcasdetabaco-obtermarcainpi">GET api/marcasdetabaco/obtermarcainpi</a></td>
+            <td class="api-documentation">
+                <p>Listar todos os processos de Marcas que possuem a NCL 34 ou a Classe 34.</p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<h2 id="JuridicoExterno">JuridicoExterno</h2>
+<table class="help-page-table">
+    <thead>
+        <tr><th>API</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-externo-juridico-obterDetalhe_numeroProcesso">GET api/externo/juridico/obterDetalhe?numeroProcesso={numeroProcesso}</a></td>
+            <td class="api-documentation">
+                <p>Obt&#233;m uma lista de processos do m&#243;dulo jur&#237;dico, baseado no numero do processo passado.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-externo-juridico-consultarProcessosIdEnvolvido_idDoEnvolvido">GET api/externo/juridico/consultarProcessosIdEnvolvido?idDoEnvolvido={idDoEnvolvido}</a></td>
+            <td class="api-documentation">
+                <p>Obt&#233;m uma lista de processos do m&#243;dulo jur&#237;dico, baseado no identificador do envolvido.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-externo-juridico-consultarProcessosCnpjCpfInpiEnvolvido_cnpjCpfInpi">GET api/externo/juridico/consultarProcessosCnpjCpfInpiEnvolvido?cnpjCpfInpi={cnpjCpfInpi}</a></td>
+            <td class="api-documentation">
+                <p>Obt&#233;m uma lista de processos do m&#243;dulo jur&#237;dico, baseado no identificador do envolvido.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-externo-juridico-obterProcessosPorDataDeManutencao_dataManutencaoInicial_dataManutencaoFinal">GET api/externo/juridico/obterProcessosPorDataDeManutencao?dataManutencaoInicial={dataManutencaoInicial}&amp;dataManutencaoFinal={dataManutencaoFinal}</a></td>
+            <td class="api-documentation">
+                <p>Obt&#233;m uma lista de processos do m&#243;dulo jur&#237;dico, baseado nas datas de manuten&#231;&#227;o inicio e fim que foram passados.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-externo-juridico-obterProcessosPorDataDeCadastro_dataCadastroInicial_dataCadastroFinal">GET api/externo/juridico/obterProcessosPorDataDeCadastro?dataCadastroInicial={dataCadastroInicial}&amp;dataCadastroFinal={dataCadastroFinal}</a></td>
+            <td class="api-documentation">
+                <p>Obt&#233;m uma lista de processos do m&#243;dulo jur&#237;dico, baseado nas datas de cadastro inicio e fim que foram passados.</p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<h2 id="Autenticacao">Autenticacao</h2>
+    <p>Controller para todo tipo de necessidade com a parte de autentica&#231;&#227;o</p>
+<table class="help-page-table">
+    <thead>
+        <tr><th>API</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-autenticacao-logar_usuario_senha_sistema">GET api/autenticacao/logar?usuario={usuario}&amp;senha={senha}&amp;sistema={sistema}</a></td>
+            <td class="api-documentation">
+                <p>Efetua o login no sistema APOL.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/POST-api-autenticacao-efetuarLogin">POST api/autenticacao/efetuarLogin</a></td>
+            <td class="api-documentation">
+                <p>Efetua o login no sistema APOL.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-autenticacao-deslogar">GET api/autenticacao/deslogar</a></td>
+            <td class="api-documentation">
+                <p>Desloga o usu&#225;rio do sistema APOL.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-autenticacao-verificarLogin">GET api/autenticacao/verificarLogin</a></td>
+            <td class="api-documentation">
+                <p>Valida o token no sistema APOL.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/POST-api-autenticacao-CriptografarSenha">POST api/autenticacao/CriptografarSenha</a></td>
+            <td class="api-documentation">
+                <p>Criptografar Senha.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/POST-api-autenticacao-DescriptografarSenha">POST api/autenticacao/DescriptografarSenha</a></td>
+            <td class="api-documentation">
+                <p>Descriptografar Senha.</p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<h2 id="PatenteInternacionalExterno">PatenteInternacionalExterno</h2>
+<table class="help-page-table">
+    <thead>
+        <tr><th>API</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-externo-patenteinternacional-obterDetalhe_pais_natureza_processo">GET api/externo/patenteinternacional/obterDetalhe?pais={pais}&amp;natureza={natureza}&amp;processo={processo}</a></td>
+            <td class="api-documentation">
+                <p>Obt&#233;m uma lista de patente internacional, baseado nos parametros passados.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-externo-patenteinternacional-consultarProcessosIdEnvolvido_idDoEnvolvido">GET api/externo/patenteinternacional/consultarProcessosIdEnvolvido?idDoEnvolvido={idDoEnvolvido}</a></td>
+            <td class="api-documentation">
+                <p>Obt&#233;m uma lista de processos de Patentes Internacionais, baseado no identificador do envolvido.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-externo-patenteinternacional-consultarProcessosCnpjCpfInpiEnvolvido_cnpjCpfInpi">GET api/externo/patenteinternacional/consultarProcessosCnpjCpfInpiEnvolvido?cnpjCpfInpi={cnpjCpfInpi}</a></td>
+            <td class="api-documentation">
+                <p>Obt&#233;m uma lista de processos de Patentes Internacionais, baseado no CNPJ/CPF/INPI do envolvido.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-externo-patenteinternacional-obterProcessosPorDataDeCadastro_dateDe_dateAte">GET api/externo/patenteinternacional/obterProcessosPorDataDeCadastro?dateDe={dateDe}&amp;dateAte={dateAte}</a></td>
+            <td class="api-documentation">
+                <p>Obt&#233;m uma lista de patente internacional, baseado nos parametros passados.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-externo-patenteinternacional-obterProcessosPorDataDeManutencao_dateDe_dateAte">GET api/externo/patenteinternacional/obterProcessosPorDataDeManutencao?dateDe={dateDe}&amp;dateAte={dateAte}</a></td>
+            <td class="api-documentation">
+                <p>Obt&#233;m uma lista de patente internacional, baseado nos parametros passados.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-externo-patenteinternacional-ObterProcessosNaoSincronizados">GET api/externo/patenteinternacional/ObterProcessosNaoSincronizados</a></td>
+            <td class="api-documentation">
+                <p>Obt&#233;m uma lista de processos de Marcas Internacionais dispon&#237;veis para sincroniza&#231;&#227;o.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/POST-api-externo-patenteinternacional-InformarSincronizacao">POST api/externo/patenteinternacional/InformarSincronizacao</a></td>
+            <td class="api-documentation">
+                <p>Atualiza informa&#231;&#245;es do processos</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/POST-api-externo-patenteinternacional-AtualizaProcesso">POST api/externo/patenteinternacional/AtualizaProcesso</a></td>
+            <td class="api-documentation">
+                <p>Atualiza informa&#231;&#245;es do processos</p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<h2 id="ProcessoUnificado">ProcessoUnificado</h2>
+    <p>Controller onde vai ser concentrado todas as necessidades do modulo do jur&#237;dico</p>
+<table class="help-page-table">
+    <thead>
+        <tr><th>API</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-externo-processosunificados-ObterProcessosUnificados">GET api/externo/processosunificados/ObterProcessosUnificados</a></td>
+            <td class="api-documentation">
+                <p>Obt&#233;m processos novos ou que sofreram altera&#231;&#245;es</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/POST-api-externo-processosunificados-InformarSincronizacaoProcessoUnificado">POST api/externo/processosunificados/InformarSincronizacaoProcessoUnificado</a></td>
+            <td class="api-documentation">
+                <p>Marca como sincronizados os processos obtidos</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/POST-api-externo-processosunificados-AtualizaProcessoUnificado">POST api/externo/processosunificados/AtualizaProcessoUnificado</a></td>
+            <td class="api-documentation">
+                <p>Atualiza informa&#231;&#245;es do processos</p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<h2 id="AutenticacaoOAuth2">AutenticacaoOAuth2</h2>
+<table class="help-page-table">
+    <thead>
+        <tr><th>API</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-autenticacaoAouth2-ObterCode_state_scope_code">GET api/autenticacaoAouth2/ObterCode?state={state}&amp;scope={scope}&amp;code={code}</a></td>
+            <td class="api-documentation">
+                <p>No documentation available.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-autenticacaoAouth2-ObterCodeMicrosoft_code_state">GET api/autenticacaoAouth2/ObterCodeMicrosoft?code={code}&amp;state={state}</a></td>
+            <td class="api-documentation">
+                <p>No documentation available.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/POST-api-autenticacaoAouth2-ObterTokenAcessoGoogle_refreshToken">POST api/autenticacaoAouth2/ObterTokenAcessoGoogle?refreshToken={refreshToken}</a></td>
+            <td class="api-documentation">
+                <p>No documentation available.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/POST-api-autenticacaoAouth2-ObterAutorizacaoGoogle_state_clientid">POST api/autenticacaoAouth2/ObterAutorizacaoGoogle?state={state}&amp;clientid={clientid}</a></td>
+            <td class="api-documentation">
+                <p>No documentation available.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/POST-api-autenticacaoAouth2-ObterAutorizacaoMicrosoft_tenantid_state_clientid">POST api/autenticacaoAouth2/ObterAutorizacaoMicrosoft?tenantid={tenantid}&amp;state={state}&amp;clientid={clientid}</a></td>
+            <td class="api-documentation">
+                <p>No documentation available.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/POST-api-autenticacaoAouth2-ObterRefreshTokenMicrosoft_code_tenantId_client_id_client_secret">POST api/autenticacaoAouth2/ObterRefreshTokenMicrosoft?code={code}&amp;tenantId={tenantId}&amp;client_id={client_id}&amp;client_secret={client_secret}</a></td>
+            <td class="api-documentation">
+                <p>No documentation available.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/POST-api-autenticacaoAouth2-ObterTokenDeAcessoMicrosoft_tenantId_client_id_client_secret_refresh_token">POST api/autenticacaoAouth2/ObterTokenDeAcessoMicrosoft?tenantId={tenantId}&amp;client_id={client_id}&amp;client_secret={client_secret}&amp;refresh_token={refresh_token}</a></td>
+            <td class="api-documentation">
+                <p>No documentation available.</p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<h2 id="Comum">Comum</h2>
+    <p>Controller onde vai ser concentrado todas as necessidades que n&#227;o seja de um modulo espec&#237;fico</p>
+<table class="help-page-table">
+    <thead>
+        <tr><th>API</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-comum-obterNumeroDeRegistros">GET api/comum/obterNumeroDeRegistros</a></td>
+            <td class="api-documentation">
+                <p>Obtem o n&#250;mero total de processos cadastrados para o usu&#225;rio &quot;master&quot; e seus dependentes</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-comum-obterNumeroDeProvidencias_natureza_processo_inicialOficial_finalOficial_inicialGerencial_finalGerencial">GET api/comum/obterNumeroDeProvidencias?natureza={natureza}&amp;processo={processo}&amp;inicialOficial={inicialOficial}&amp;finalOficial={finalOficial}&amp;inicialGerencial={inicialGerencial}&amp;finalGerencial={finalGerencial}</a></td>
+            <td class="api-documentation">
+                <p>N&#250;mero total de provid&#234;ncias existentes para o usu&#225;rio no intervalo de 7 dias a contar do dia atual</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-comum-obterProvidencias_registrosPorPagina_paginaAtual_ordem_natureza_processo_inicialOficial_finalOficial_inicialGerencial_finalGerencial">GET api/comum/obterProvidencias?registrosPorPagina={registrosPorPagina}&amp;paginaAtual={paginaAtual}&amp;ordem={ordem}&amp;natureza={natureza}&amp;processo={processo}&amp;inicialOficial={inicialOficial}&amp;finalOficial={finalOficial}&amp;inicialGerencial={inicialGerencial}&amp;finalGerencial={finalGerencial}</a></td>
+            <td class="api-documentation">
+                <p>Lista de todas as provid&#234;ncias a vencer de todos os m&#243;dulos (Marca, Patente, Desenho Industrial). 
+            Caso seja feita uma pesquisa sem os par&#226;metros de “processo” e “natureza” (n&#227;o obrigat&#243;rios) 
+            a pesquisa ser&#225; realizada em todos os processos (Marca, Patente e Desenho Industrial). 
+            A pesquisa de Marca n&#227;o utiliza o par&#226;metro &quot;natureza&quot;.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-comum-verificarVersao_versaoAtual">GET api/comum/verificarVersao?versaoAtual={versaoAtual}</a></td>
+            <td class="api-documentation">
+                <p>Verifica a vers&#227;o atual do sistema do aplicativo</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-comum-obterCalculoDeData_dataBase_operacao_tipo_dias_meses_anos">GET api/comum/obterCalculoDeData?dataBase={dataBase}&amp;operacao={operacao}&amp;tipo={tipo}&amp;dias={dias}&amp;meses={meses}&amp;anos={anos}</a></td>
+            <td class="api-documentation">
+                <p>C&#225;lculo de data com opera&#231;&#227;o em dias uteis ou dias corridos, 
+            inicialmente foi criado apenas o m&#233;todo de c&#225;lculo de dias &#250;teis, 
+            retirando finais de semana, feriados m&#243;veis e feriados fixos.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-comum-obterArquivoAgendaICS_arquivo">GET api/comum/obterArquivoAgendaICS?arquivo={arquivo}</a></td>
+            <td class="api-documentation">
+                <p>Obter arquivo .ICS da agenda do APOL.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-comum-obterTiposDeAnexo_modulo">GET api/comum/obterTiposDeAnexo?modulo={modulo}</a></td>
+            <td class="api-documentation">
+                <p>Busca todos os tipos de anexo de acordo com o m&#243;dulo informado.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/POST-api-comum-incluirAgendaICS">POST api/comum/incluirAgendaICS</a></td>
+            <td class="api-documentation">
+                <p>Inclui uma nova Agenda ICS relacionada ao usu&#225;rio definido</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/DELETE-api-comum-excluirAgendaICS_idAgendaICS">DELETE api/comum/excluirAgendaICS?idAgendaICS={idAgendaICS}</a></td>
+            <td class="api-documentation">
+                <p>Exclui a agenda ICS definida.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/PUT-api-comum-editarAgendaICS">PUT api/comum/editarAgendaICS</a></td>
+            <td class="api-documentation">
+                <p>Edita os dados da agenda ICS definida.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-comum-obterAgendasICS_registrosPorPagina_paginaAtual">GET api/comum/obterAgendasICS?registrosPorPagina={registrosPorPagina}&amp;paginaAtual={paginaAtual}</a></td>
+            <td class="api-documentation">
+                <p>Obt&#233;m lista de agenda ICS do usu&#225;rio definido.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-comum-obterResponsaveis">GET api/comum/obterResponsaveis</a></td>
+            <td class="api-documentation">
+                <p>Obt&#233;m lista de responsaveis do usu&#225;rio definido.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/POST-api-comum-gravarAnexo">POST api/comum/gravarAnexo</a></td>
+            <td class="api-documentation">
+                <p>Realiza o upload de anexos</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-comum-obterTiposDoEnvolvido_modulo">GET api/comum/obterTiposDoEnvolvido?modulo={modulo}</a></td>
+            <td class="api-documentation">
+                <p>Obt&#233;m os tipos do envolvido cadastrados para o usu&#225;rio</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-comum-obterEnvolvidos_modulo">GET api/comum/obterEnvolvidos?modulo={modulo}</a></td>
+            <td class="api-documentation">
+                <p>Obt&#233;m os envolvido cadastrados para o usu&#225;rio</p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<h2 id="Administrativo">Administrativo</h2>
+    <p>Controller onde vai ser concentrado todas as necessidades da parte administrativa</p>
+<table class="help-page-table">
+    <thead>
+        <tr><th>API</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-administrativo-obterPermissaoDeAcesso">GET api/administrativo/obterPermissaoDeAcesso</a></td>
+            <td class="api-documentation">
+                <p>Verifica se o usu&#225;rio possui permiss&#227;o para acessar as funcionalidades que dever&#227;o ser utilizada no aplicativo</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-administrativo-obterEnvolvidos_palavraChave_registrosPorPagina_paginaAtual_ordem">GET api/administrativo/obterEnvolvidos?palavraChave={palavraChave}&amp;registrosPorPagina={registrosPorPagina}&amp;paginaAtual={paginaAtual}&amp;ordem={ordem}</a></td>
+            <td class="api-documentation">
+                <p>Obt&#233;m uma lista de envolvidos, baseado nos par&#226;metros passado.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-administrativo-obterDetalheDoEnvolvido_id">GET api/administrativo/obterDetalheDoEnvolvido?id={id}</a></td>
+            <td class="api-documentation">
+                <p>Obt&#233;m o detalhe do envolvido selecionado</p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<h2 id="CapturaDadosInpi">CapturaDadosInpi</h2>
+    <p>Controller onde vai ser concentrado todas as necessidades da leitura GazetaWipo</p>
+<table class="help-page-table">
+    <thead>
+        <tr><th>API</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-externo-dadosinpi-obterusuarioshabilitados_token_usuario_modulo">GET api/externo/dadosinpi/obterusuarioshabilitados?token={token}&amp;usuario={usuario}&amp;modulo={modulo}</a></td>
+            <td class="api-documentation">
+                <p>Obtem usuarios titulares havilitados ou caso o par&#226;metro usu&#225;rio esteja preenchido, retornar&#225; os dependentes com permiss&#227;o.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-externo-dadosinpi-obterservicos_token">GET api/externo/dadosinpi/obterservicos?token={token}</a></td>
+            <td class="api-documentation">
+                <p>Obter servi&#231;os do INPI.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-externo-dadosinpi-obterrecibosinpi_token_codigoUsuario_modulo_codigoRecibo">GET api/externo/dadosinpi/obterrecibosinpi?token={token}&amp;codigoUsuario={codigoUsuario}&amp;modulo={modulo}&amp;codigoRecibo={codigoRecibo}</a></td>
+            <td class="api-documentation">
+                <p>Obtem todos os recibos do INPI: Excluido = false e Lido = false .</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-externo-dadosinpi-ObterUsuarioInpi_token_idUsuario_sistema">GET api/externo/dadosinpi/ObterUsuarioInpi?token={token}&amp;idUsuario={idUsuario}&amp;sistema={sistema}</a></td>
+            <td class="api-documentation">
+                <p>Obtem usus&#225;rio do INPI.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/POST-api-externo-dadosinpi-atualizasenhainvalida_token">POST api/externo/dadosinpi/atualizasenhainvalida?token={token}</a></td>
+            <td class="api-documentation">
+                <p>No documentation available.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/POST-api-externo-dadosinpi-inserereciboinpi_token_tipoTitular">POST api/externo/dadosinpi/inserereciboinpi?token={token}&amp;tipoTitular={tipoTitular}</a></td>
+            <td class="api-documentation">
+                <p>Insere recibo.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/POST-api-externo-dadosinpi-atualizareciboinpi_token">POST api/externo/dadosinpi/atualizareciboinpi?token={token}</a></td>
+            <td class="api-documentation">
+                <p>Atualiza ReciboInpi.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/POST-api-externo-dadosinpi-insererecibos">POST api/externo/dadosinpi/insererecibos</a></td>
+            <td class="api-documentation">
+                <p>M&#233;todo para consumo externo que insere uma lista de codigos (nosso n&#250;mero) para captura de recibos no INPI.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/POST-api-externo-dadosinpi-autenticarinpi">POST api/externo/dadosinpi/autenticarinpi</a></td>
+            <td class="api-documentation">
+                <p>M&#233;todo para validar senha no INPI.</p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<h2 id="Juridico">Juridico</h2>
+    <p>Controller onde vai ser concentrado todas as necessidades do modulo do jur&#237;dico</p>
+<table class="help-page-table">
+    <thead>
+        <tr><th>API</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-juridico-obterDetalhe_processo">GET api/juridico/obterDetalhe?processo={processo}</a></td>
+            <td class="api-documentation">
+                <p>Obt&#233;m os campos gerenciais e oficiais de um processo pelo n&#250;mero.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-juridico-obterProcessosRelacionados_idProcesso_maximoDeRegistros">GET api/juridico/obterProcessosRelacionados?idProcesso={idProcesso}&amp;maximoDeRegistros={maximoDeRegistros}</a></td>
+            <td class="api-documentation">
+                <p>Obt&#233;m lista de processos relacionados(incidentes, etc) do processo definido.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-juridico-obterProcessos_palavraChave_registrosPorPagina_paginaAtual_ordem">GET api/juridico/obterProcessos?palavraChave={palavraChave}&amp;registrosPorPagina={registrosPorPagina}&amp;paginaAtual={paginaAtual}&amp;ordem={ordem}</a></td>
+            <td class="api-documentation">
+                <p>Obt&#233;m uma lista de processos do m&#243;dulo jur&#237;dico, baseado nos par&#226;metros passado.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-juridico-enviarEmailDeObterProcesso_palavraChave_ordem_assunto_destino_corpo">GET api/juridico/enviarEmailDeObterProcesso?palavraChave={palavraChave}&amp;ordem={ordem}&amp;assunto={assunto}&amp;destino={destino}&amp;corpo={corpo}</a></td>
+            <td class="api-documentation">
+                <p>Busca conforme a palavra-chave digitada, colocar&#225; o resultado em um modelo HTML, converter&#225; para PDF e enviar&#225; o e-mail com o PDF em anexo conforme configura&#231;&#227;o de 
+            caixa de sa&#237;da realizada no Apol. A mensagem descrita no corpo do e-mail ser&#225; digitada pelo usu&#225;rio atrav&#233;s do APP.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-juridico-enviarEmailDetalheDoProcesso_processo_assunto_destino_corpo">GET api/juridico/enviarEmailDetalheDoProcesso?processo={processo}&amp;assunto={assunto}&amp;destino={destino}&amp;corpo={corpo}</a></td>
+            <td class="api-documentation">
+                <p>Busca conforme o processo digitada, colocar&#225; o resultado em um modelo HTML, converter&#225; para PDF e enviar&#225; o e-mail com o PDF em anexo conforme configura&#231;&#227;o de 
+            caixa de sa&#237;da realizada no Apol. A mensagem descrita no corpo do e-mail ser&#225; digitada pelo usu&#225;rio atrav&#233;s do APP.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-juridico-obterChecklists_idProvidencia">GET api/juridico/obterChecklists?idProvidencia={idProvidencia}</a></td>
+            <td class="api-documentation">
+                <p>Obt&#233;m lista de checklists da providencia definida.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/POST-api-juridico-incluirChecklist">POST api/juridico/incluirChecklist</a></td>
+            <td class="api-documentation">
+                <p>Inclui um novo checklists relacionado &#224; providencia definida.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/DELETE-api-juridico-excluirChecklist_idChecklist">DELETE api/juridico/excluirChecklist?idChecklist={idChecklist}</a></td>
+            <td class="api-documentation">
+                <p>Exclui o checklist definido.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/PUT-api-juridico-editarChecklist">PUT api/juridico/editarChecklist</a></td>
+            <td class="api-documentation">
+                <p>Edita os dados do checklist definido.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/POST-api-juridico-cadastrarProcessos">POST api/juridico/cadastrarProcessos</a></td>
+            <td class="api-documentation">
+                <p>Cadastra processos em lote no Apol</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/POST-api-juridico-cadastrarprocesso">POST api/juridico/cadastrarprocesso</a></td>
+            <td class="api-documentation">
+                <p>Inserir um processo no Apol</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/POST-api-juridico-editarnumerodoprocesso">POST api/juridico/editarnumerodoprocesso</a></td>
+            <td class="api-documentation">
+                <p>Alterar numera&#231;&#227;o de processo e tipo de gerencial para oficial</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/POST-api-juridico-gerarRelatorioPersonalizadoPDF">POST api/juridico/gerarRelatorioPersonalizadoPDF</a></td>
+            <td class="api-documentation">
+                <p>Cadastra todos os processos selecionados no apol</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-juridico-obterTribunaisDigesto">GET api/juridico/obterTribunaisDigesto</a></td>
+            <td class="api-documentation">
+                <p>Obt&#233;m uma lista de tribunais utilizados no monitoramento da digesto.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-juridico-obterTribunaisGerenciais">GET api/juridico/obterTribunaisGerenciais</a></td>
+            <td class="api-documentation">
+                <p>Retona lista de Org&#227;os cadastrados gerencialmente pelo Apol</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-juridico-obterFontesDOficial">GET api/juridico/obterFontesDOficial</a></td>
+            <td class="api-documentation">
+                <p>Obt&#233;m uma lista de fontes utilizados no monitoramento de di&#225;rio oficial.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-juridico-obterMonitoramentosDigesto">GET api/juridico/obterMonitoramentosDigesto</a></td>
+            <td class="api-documentation">
+                <p>Obt&#233;m uma lista de monitoramentos de di&#225;rio oficial.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/POST-api-juridico-cadastrarMonitoramentoDigesto">POST api/juridico/cadastrarMonitoramentoDigesto</a></td>
+            <td class="api-documentation">
+                <p>Cadastra monitoramento do Di&#225;rio Oficial.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/POST-api-juridico-editarMonitoramentoDigesto">POST api/juridico/editarMonitoramentoDigesto</a></td>
+            <td class="api-documentation">
+                <p>Edita monitoramento.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/POST-api-juridico-excluirMonitoramentosDigesto">POST api/juridico/excluirMonitoramentosDigesto</a></td>
+            <td class="api-documentation">
+                <p>Excluir monitoramentos do Di&#225;rio Oficial.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/POST-api-juridico-obterDistribuicoes">POST api/juridico/obterDistribuicoes</a></td>
+            <td class="api-documentation">
+                <p>Obt&#233;m uma lista de distribui&#231;&#245;es.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/POST-api-juridico-obterAndamentosDOficial">POST api/juridico/obterAndamentosDOficial</a></td>
+            <td class="api-documentation">
+                <p>Obt&#233;m uma lista de andamentos de di&#225;rio oficial.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-juridico-obterOrgaos">GET api/juridico/obterOrgaos</a></td>
+            <td class="api-documentation">
+                <p>Obt&#233;m uma lista de org&#227;os</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/POST-api-juridico-editarParametroMonitoramento">POST api/juridico/editarParametroMonitoramento</a></td>
+            <td class="api-documentation">
+                <p>Editar par&#226;metro do Monitoramento</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-juridico-obterParametroMonitoramento">GET api/juridico/obterParametroMonitoramento</a></td>
+            <td class="api-documentation">
+                <p>Obter par&#226;metro do Di&#225;rio Oficial</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/POST-api-juridico-digestoCallback">POST api/juridico/digestoCallback</a></td>
+            <td class="api-documentation">
+                <p>Utilizada para recebimento das informa&#231;&#245;es enviadas pelo monitoramento da Digesto</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-juridico-ObterTribunais">GET api/juridico/ObterTribunais</a></td>
+            <td class="api-documentation">
+                <p>Obter lista de tribunais dispon&#237;veis para consultar processos</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-juridico-ObterTribunal_sigla">GET api/juridico/ObterTribunal?sigla={sigla}</a></td>
+            <td class="api-documentation">
+                <p>Obter a inst&#226;ncia do tribunal pela sigla oficial</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-juridico-validarNumeracaoUnicaDoProcesso_numeroDoProcesso">GET api/juridico/validarNumeracaoUnicaDoProcesso?numeroDoProcesso={numeroDoProcesso}</a></td>
+            <td class="api-documentation">
+                <p>Valida a m&#225;scara de n&#250;mera&#231;&#227;o &#250;nico de processos pelo padr&#227;o CNJ</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/POST-api-juridico-BipBopCallback">POST api/juridico/BipBopCallback</a></td>
+            <td class="api-documentation">
+                <p>Grava o XML do processo enviado pela Bipbop em uma pasta de arquivos recebidos no Apol</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/POST-api-juridico-integrar-jusbrasil">POST api/juridico/integrar-jusbrasil</a></td>
+            <td class="api-documentation">
+                <p>Recebe dados de processo j&#225; traduzidos da Jusbrasil pela nova API de integra&#231;&#227;o
+            e executa a mesma l&#243;gica de AtualizarProcessoIntegracao sem precisar de XML BipBop.
+            Autenticado por X-Api-Key (mesma chave configurada na nova API).</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-juridico-obterMonitoramento_busca_paginaAtual_registrosPorPagina_erros_desatualizado">GET api/juridico/obterMonitoramento?busca={busca}&amp;paginaAtual={paginaAtual}&amp;registrosPorPagina={registrosPorPagina}&amp;erros={erros}&amp;desatualizado={desatualizado}</a></td>
+            <td class="api-documentation">
+                <p>Obter monitoramentos de processos cadastrados no Apol</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/POST-api-juridico-AlterarMonitoramento">POST api/juridico/AlterarMonitoramento</a></td>
+            <td class="api-documentation">
+                <p>Marcar o monitoramento para sincroniza&#231;&#227;o imediata</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/POST-api-juridico-AlterarMonitoramentoPorId_subkey_idDoMonitoramento">POST api/juridico/AlterarMonitoramentoPorId?subkey={subkey}&amp;idDoMonitoramento={idDoMonitoramento}</a></td>
+            <td class="api-documentation">
+                <p>Alterar a data da pr&#243;xima sincroniza&#231;&#227;o para agora</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/DELETE-api-juridico-ExcluirMonitoramentoPorProcesso_idDoProcesso">DELETE api/juridico/ExcluirMonitoramentoPorProcesso?idDoProcesso={idDoProcesso}</a></td>
+            <td class="api-documentation">
+                <p>Excluir o monitoramento por n&#250;mero do processo</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-juridico-ReativarMonitoramentoPorProcesso_idDoProcesso">GET api/juridico/ReativarMonitoramentoPorProcesso?idDoProcesso={idDoProcesso}</a></td>
+            <td class="api-documentation">
+                <p>Utilizar o &#250;ltimo monitoramento exclu&#237;do e reativa na Bipbop</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-juridico-CriarMonitoramentosDeProcessosComErro">GET api/juridico/CriarMonitoramentosDeProcessosComErro</a></td>
+            <td class="api-documentation">
+                <p>Corrigir cadastro de monitoramentos</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-juridico-obterMonitoramentoLog_busca_paginaAtual_registrosPorPagina_resolvido_publicadoApol">GET api/juridico/obterMonitoramentoLog?busca={busca}&amp;paginaAtual={paginaAtual}&amp;registrosPorPagina={registrosPorPagina}&amp;resolvido={resolvido}&amp;publicadoApol={publicadoApol}</a></td>
+            <td class="api-documentation">
+                <p>&#218;ltimo log de erro do sincronismo do monitoramento persistido no banco do Jur&#237;dico</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/POST-api-juridico-SetDoneMonitoramentoLog_idMonitoramento">POST api/juridico/SetDoneMonitoramentoLog?idMonitoramento={idMonitoramento}</a></td>
+            <td class="api-documentation">
+                <p>Fun&#231;&#227;o da Intranet, marcar retorno de erro do monitoramento como resolvido</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/POST-api-juridico-NotificarMonitoramentoLog_id">POST api/juridico/NotificarMonitoramentoLog?id={id}</a></td>
+            <td class="api-documentation">
+                <p>Marca como publicado no Trello da Bipbop a mensagem de erro</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/POST-api-juridico-PublicarMonitoramentoLog_id">POST api/juridico/PublicarMonitoramentoLog?id={id}</a></td>
+            <td class="api-documentation">
+                <p>Disponibiliza a mensagem de erro no Apol</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/DELETE-api-juridico-DeleteMonitoramentoLog_id">DELETE api/juridico/DeleteMonitoramentoLog?id={id}</a></td>
+            <td class="api-documentation">
+                <p>Excluir do hist&#243;rico de erros do monitoramento o &#250;ltimo retorno do processo selecionado</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-juridico-sincronizartribunais">GET api/juridico/sincronizartribunais</a></td>
+            <td class="api-documentation">
+                <p>Sincronizar tribunais cadadastrados no Apol com as informa&#231;&#245;es oficiais do tribunal diretamente da BipBop</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-juridico-obterProcessoDoTribunal_numeroDoProcesso">GET api/juridico/obterProcessoDoTribunal?numeroDoProcesso={numeroDoProcesso}</a></td>
+            <td class="api-documentation">
+                <p>Consultar processos diretamente no tribunal pela API da BipBop</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-juridico-ObterPush_paginaAtual_registrosPorPagina">GET api/juridico/ObterPush?paginaAtual={paginaAtual}&amp;registrosPorPagina={registrosPorPagina}</a></td>
+            <td class="api-documentation">
+                <p>Obter push (monitoramento de processos) que est&#227;o cadastrados na BipBop</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-juridico-ObterPushHistorico_codigo">GET api/juridico/ObterPushHistorico?codigo={codigo}</a></td>
+            <td class="api-documentation">
+                <p>Obter todo hist&#243;rico de retornos dos pushs pela BipBop</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-juridico-ObterPushSemMonitoramento">GET api/juridico/ObterPushSemMonitoramento</a></td>
+            <td class="api-documentation">
+                <p>Todos os monitoramento que est&#227;o criados no fornecedor mas perdemos o controle no APOL</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-juridico-ExcluirPushSemMonitoramento_codigo">GET api/juridico/ExcluirPushSemMonitoramento?codigo={codigo}</a></td>
+            <td class="api-documentation">
+                <p>Excluir monitoramento de processos diretamente na BipBop. Este processo n&#227;o vai mais receber atualiza&#231;&#227;o</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-juridico-ObterChavesLocal">GET api/juridico/ObterChavesLocal</a></td>
+            <td class="api-documentation">
+                <p>Obter as chaves dos usu&#225;rios cadastradas no Apol</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-juridico-ObterChavesDosUsuarios">GET api/juridico/ObterChavesDosUsuarios</a></td>
+            <td class="api-documentation">
+                <p>Obter todas as chaves criadas na Bipbop</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-juridico-ReativarChavesDeUsuariosLiberados">GET api/juridico/ReativarChavesDeUsuariosLiberados</a></td>
+            <td class="api-documentation">
+                <p>Ativar conta de usu&#225;rio na Bipbop</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-juridico-DesativarChavesDeUsuariosBloqueados">GET api/juridico/DesativarChavesDeUsuariosBloqueados</a></td>
+            <td class="api-documentation">
+                <p>Desabilitar conta de usu&#225;rio na Bipbop</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-juridico-ObterPesquisaOAB_numeroOAB_paginaAtual_registrosPorPagina">GET api/juridico/ObterPesquisaOAB?numeroOAB={numeroOAB}&amp;paginaAtual={paginaAtual}&amp;registrosPorPagina={registrosPorPagina}</a></td>
+            <td class="api-documentation">
+                <p>Obter pesquias da OAB pelo n&#250;mero ou parte dele</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-juridico-ObterResultadoDaPesquisaOAB_id_paginaAtual_registrosPorPagina">GET api/juridico/ObterResultadoDaPesquisaOAB?id={id}&amp;paginaAtual={paginaAtual}&amp;registrosPorPagina={registrosPorPagina}</a></td>
+            <td class="api-documentation">
+                <p>Retorna lista de todos os processos encontrados pela pesquisa por n&#250;mero da OAB</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/POST-api-juridico-SalvarPesquisaOAB">POST api/juridico/SalvarPesquisaOAB</a></td>
+            <td class="api-documentation">
+                <p>Criar uma nova pesquisa por n&#250;mero OAB</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/POST-api-juridico-BipBopCallbackOAB">POST api/juridico/BipBopCallbackOAB</a></td>
+            <td class="api-documentation">
+                <p>Retorno das consulta por n&#250;mero da OAB</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/POST-api-juridico-CadastrarProcessosPorPesquisaOAB">POST api/juridico/CadastrarProcessosPorPesquisaOAB</a></td>
+            <td class="api-documentation">
+                <p>Cadastrar processos em lote utilizando retorno da Pesquisa OAB</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-juridico-ObterMonitoramentoOABLog_descricao_paginaAtual_registrosPorPagina">GET api/juridico/ObterMonitoramentoOABLog?descricao={descricao}&amp;paginaAtual={paginaAtual}&amp;registrosPorPagina={registrosPorPagina}</a></td>
+            <td class="api-documentation">
+                <p>Obter todas as mensagem de erro no cadastramento de n&#250;mero OAB</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-juridico-TotalDeMonitoramentos">GET api/juridico/TotalDeMonitoramentos</a></td>
+            <td class="api-documentation">
+                <p>Quantidade total de monitoramentos controlados</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-juridico-ObterTotalDeMonitoramentosDesatualizados">GET api/juridico/ObterTotalDeMonitoramentosDesatualizados</a></td>
+            <td class="api-documentation">
+                <p>Utilizando o campo de &#218;litma da de atualiza&#231;&#227;o da Bipbop, obtem a quantidade de monitoramentos sem atualiza&#231;&#227;o ou com data inferior a 24 horas.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-juridico-ObterQuantidadeDePushSemMonitoramento">GET api/juridico/ObterQuantidadeDePushSemMonitoramento</a></td>
+            <td class="api-documentation">
+                <p>No documentation available.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-juridico-QuantidadeDeMonitoramentosPorMes_DataDeInicio_DataDeFim">GET api/juridico/QuantidadeDeMonitoramentosPorMes?DataDeInicio={DataDeInicio}&amp;DataDeFim={DataDeFim}</a></td>
+            <td class="api-documentation">
+                <p>Obtem a quantidade de monitoramentos cadastrados por m&#234;s</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-juridico-QuantidadeDeXmlDeProcessosPendentes">GET api/juridico/QuantidadeDeXmlDeProcessosPendentes</a></td>
+            <td class="api-documentation">
+                <p>Quantidade de arquivos de processos pendentes de processamento</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-juridico-UnixTimestamp2Minutos">GET api/juridico/UnixTimestamp2Minutos</a></td>
+            <td class="api-documentation">
+                <p>M&#233;todo de teste para obter a convers&#227;o da data atual para timestamp (01/01/1970)</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-juridico-ObterConsoleLog_busca_paginaAtual_registrosPorPagina">GET api/juridico/ObterConsoleLog?busca={busca}&amp;paginaAtual={paginaAtual}&amp;registrosPorPagina={registrosPorPagina}</a></td>
+            <td class="api-documentation">
+                <p>Lista todos</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/DELETE-api-juridico-ExcluirConsoleLog_id">DELETE api/juridico/ExcluirConsoleLog?id={id}</a></td>
+            <td class="api-documentation">
+                <p></p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<h2 id="CadastroLivre">CadastroLivre</h2>
+    <p>Controller onde vai ser concentrado todas as necessidades do modulo do jur&#237;dico</p>
+<table class="help-page-table">
+    <thead>
+        <tr><th>API</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/POST-api-cadastrolivre-obterDados-xls">POST api/cadastrolivre/obterDados/xls</a></td>
+            <td class="api-documentation">
+                <p>Obt&#233;m os detalhes do cadastro livre</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/POST-api-cadastrolivre-obterDados">POST api/cadastrolivre/obterDados</a></td>
+            <td class="api-documentation">
+                <p>Obt&#233;m os detalhes do cadastro livre</p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<h2 id="DocumentoCashFYExterno">DocumentoCashFYExterno</h2>
+    <p>Controller da Integra&#231;&#227;o dos Anexos dos Envolvidos do CashFY com o Apol</p>
+<table class="help-page-table">
+    <thead>
+        <tr><th>API</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/POST-api-documentoCashFY-upload">POST api/documentoCashFY/upload</a></td>
+            <td class="api-documentation">
+                <p>Cria os documentos enviados na base</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/POST-api-documentoCashFY-delete">POST api/documentoCashFY/delete</a></td>
+            <td class="api-documentation">
+                <p>Excluir o documento enviado na base do apol e no azure</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/POST-api-documentoCashFY-url">POST api/documentoCashFY/url</a></td>
+            <td class="api-documentation">
+                <p>Cria os documentos enviados na base</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-documentoCashFY-geturl_idDocumento_token">GET api/documentoCashFY/geturl?idDocumento={idDocumento}&amp;token={token}</a></td>
+            <td class="api-documentation">
+                <p>Obt&#233;m o documento definido.</p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<h2 id="Patente">Patente</h2>
+    <p>Controller onde vai ser concentrado todas as necessidades do modulo de patente</p>
+<table class="help-page-table">
+    <thead>
+        <tr><th>API</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-patente-obterProcessos_palavraChave_desenhoIndustrial_registroPorPagina_paginaAtual_ordem">GET api/patente/obterProcessos?palavraChave={palavraChave}&amp;desenhoIndustrial={desenhoIndustrial}&amp;registroPorPagina={registroPorPagina}&amp;paginaAtual={paginaAtual}&amp;ordem={ordem}</a></td>
+            <td class="api-documentation">
+                <p>Obt&#233;m uma lista de processos de Patente, baseado nos par&#226;metros passado.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-patente-obterDetalhe_natureza_processo">GET api/patente/obterDetalhe?natureza={natureza}&amp;processo={processo}</a></td>
+            <td class="api-documentation">
+                <p>Obt&#233;m o detalhe do processo selecionado</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-patente-enviarEmailDeObterProcesso_palavraChave_desenhoIndustrial_ordem_assunto_destino_corpo">GET api/patente/enviarEmailDeObterProcesso?palavraChave={palavraChave}&amp;desenhoIndustrial={desenhoIndustrial}&amp;ordem={ordem}&amp;assunto={assunto}&amp;destino={destino}&amp;corpo={corpo}</a></td>
+            <td class="api-documentation">
+                <p>Busca conforme a palavra-chave digitada, colocar&#225; o resultado em um modelo HTML, converter&#225; para PDF e enviar&#225; o e-mail com o PDF em anexo conforme configura&#231;&#227;o de 
+            caixa de sa&#237;da realizada no Apol. A mensagem descrita no corpo do e-mail ser&#225; digitada pelo usu&#225;rio atrav&#233;s do APP.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-patente-enviarEmailDetalheDoProcesso_processo_natureza_assunto_destino_corpo">GET api/patente/enviarEmailDetalheDoProcesso?processo={processo}&amp;natureza={natureza}&amp;assunto={assunto}&amp;destino={destino}&amp;corpo={corpo}</a></td>
+            <td class="api-documentation">
+                <p>Busca conforme o processo digitada, colocar&#225; o resultado em um modelo HTML, converter&#225; para PDF e enviar&#225; o e-mail com o PDF em anexo conforme configura&#231;&#227;o de 
+            caixa de sa&#237;da realizada no Apol. A mensagem descrita no corpo do e-mail ser&#225; digitada pelo usu&#225;rio atrav&#233;s do APP.</p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<h2 id="Marca">Marca</h2>
+    <p>Controller onde vai ser concentrado todas as necessidades do modulo de marca</p>
+<table class="help-page-table">
+    <thead>
+        <tr><th>API</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-marca-obterProcessos_palavraChave_registroPorPagina_paginaAtual_ordem">GET api/marca/obterProcessos?palavraChave={palavraChave}&amp;registroPorPagina={registroPorPagina}&amp;paginaAtual={paginaAtual}&amp;ordem={ordem}</a></td>
+            <td class="api-documentation">
+                <p>Obt&#233;m uma lista de processos de Marca, baseado nos par&#226;metros passado.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-marca-obterDetalhe_processo">GET api/marca/obterDetalhe?processo={processo}</a></td>
+            <td class="api-documentation">
+                <p>Obt&#233;m o detalhe do processo selecionado</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-marca-enviarEmailDeObterProcesso_palavraChave_ordem_assunto_destino_corpo">GET api/marca/enviarEmailDeObterProcesso?palavraChave={palavraChave}&amp;ordem={ordem}&amp;assunto={assunto}&amp;destino={destino}&amp;corpo={corpo}</a></td>
+            <td class="api-documentation">
+                <p>Busca conforme a palavra-chave digitada, colocar&#225; o resultado em um modelo HTML, converter&#225; para PDF e enviar&#225; o e-mail com o PDF em anexo conforme configura&#231;&#227;o de 
+            caixa de sa&#237;da realizada no Apol. A mensagem descrita no corpo do e-mail ser&#225; digitada pelo usu&#225;rio atrav&#233;s do APP.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-marca-enviarEmailDetalheDoProcesso_processo_assunto_destino_corpo">GET api/marca/enviarEmailDetalheDoProcesso?processo={processo}&amp;assunto={assunto}&amp;destino={destino}&amp;corpo={corpo}</a></td>
+            <td class="api-documentation">
+                <p>Busca conforme o processo digitada, colocar&#225; o resultado em um modelo HTML, converter&#225; para PDF e enviar&#225; o e-mail com o PDF em anexo conforme configura&#231;&#227;o de 
+            caixa de sa&#237;da realizada no Apol. A mensagem descrita no corpo do e-mail ser&#225; digitada pelo usu&#225;rio atrav&#233;s do APP.</p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<h2 id="GazetaWipo">GazetaWipo</h2>
+    <p>Controller onde vai ser concentrado todas as necessidades da leitura GazetaWipo</p>
+<table class="help-page-table">
+    <thead>
+        <tr><th>API</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-gazetawipo-obterrevistaatual_token">GET api/gazetawipo/obterrevistaatual?token={token}</a></td>
+            <td class="api-documentation">
+                <p>Obt&#234;m a revista atual.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-gazetawipo-obterDespachoRowTruncado_token">GET api/gazetawipo/obterDespachoRowTruncado?token={token}</a></td>
+            <td class="api-documentation">
+                <p>Obt&#233;m os despachos truncados.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/POST-api-gazetawipo-ajustarTruncado_token">POST api/gazetawipo/ajustarTruncado?token={token}</a></td>
+            <td class="api-documentation">
+                <p>Ajustar o despacho truncado e adicionar na tabela Despachos.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-gazetawipo-obterleitura_token">GET api/gazetawipo/obterleitura?token={token}</a></td>
+            <td class="api-documentation">
+                <p>Obt&#234;m leituras.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-gazetawipo-gerarRelatorioXlsDesignadosBr_token_usuario">GET api/gazetawipo/gerarRelatorioXlsDesignadosBr?token={token}&amp;usuario={usuario}</a></td>
+            <td class="api-documentation">
+                <p>Obt&#234;m leituras.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/POST-api-gazetawipo-realizarleitura_token">POST api/gazetawipo/realizarleitura?token={token}</a></td>
+            <td class="api-documentation">
+                <p>Realiza leitura.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/POST-api-gazetawipo-enviaremailcliente_token">POST api/gazetawipo/enviaremailcliente?token={token}</a></td>
+            <td class="api-documentation">
+                <p>Envia e-mail para os usu&#225;rios com despachos.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/POST-api-gazetawipo-capturaDetalheProcessos_token">POST api/gazetawipo/capturaDetalheProcessos?token={token}</a></td>
+            <td class="api-documentation">
+                <p>Envia e-mail para os usu&#225;rios com despachos.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/POST-api-gazetawipo-gerarProrrogacao_token">POST api/gazetawipo/gerarProrrogacao?token={token}</a></td>
+            <td class="api-documentation">
+                <p>Gerar prorroga&#231;&#227;o manualmente.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/POST-api-gazetawipo-atualizaProvidenciaProcessoBase_token">POST api/gazetawipo/atualizaProvidenciaProcessoBase?token={token}</a></td>
+            <td class="api-documentation">
+                <p>Gerar prorroga&#231;&#227;o manualmente.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/POST-api-gazetawipo-ObterRegistrosWipo_irn">POST api/gazetawipo/ObterRegistrosWipo?irn={irn}</a></td>
+            <td class="api-documentation">
+                <p>No documentation available.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/POST-api-gazetawipo-ObterAnoDepositoWipo_docId">POST api/gazetawipo/ObterAnoDepositoWipo?docId={docId}</a></td>
+            <td class="api-documentation">
+                <p>No documentation available.</p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<h2 id="Bi">Bi</h2>
+    <p>Controller onde vai ser concentrado todas as necessidades do m&#243;dulo de BI</p>
+<table class="help-page-table">
+    <thead>
+        <tr><th>API</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/POST-api-bi-obterConfiguracaoPowerBi">POST api/bi/obterConfiguracaoPowerBi</a></td>
+            <td class="api-documentation">
+                <p>Obtem o n&#250;mero total de processos cadastrados para o usu&#225;rio &quot;master&quot; e seus dependentes</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-bi-obterDadosDoRelatorio_consulta_usuarioToken">GET api/bi/obterDadosDoRelatorio?consulta={consulta}&amp;usuarioToken={usuarioToken}</a></td>
+            <td class="api-documentation">
+                <p>Obtem os dados do PowerBI para serem utilizado no relat&#243;rio</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="api-name"><a href="/webservices/Apol/Help/Api/GET-api-bi-obterDadosDoRelatorioxlsx_consulta_usuarioToken">GET api/bi/obterDadosDoRelatorioxlsx?consulta={consulta}&amp;usuarioToken={usuarioToken}</a></td>
+            <td class="api-documentation">
+                <p>Obtem os dados do PowerBI para serem utilizado no relat&#243;rio</p>
+            </td>
+        </tr>
+    </tbody>
+</table>    </section>
+</div>
+
+</body>
+</html>
