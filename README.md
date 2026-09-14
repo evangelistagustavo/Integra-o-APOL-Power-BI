@@ -465,7 +465,7 @@ Data da decisão
 
 ---
 
-# ⏱️ Timeline dos Processos
+# Timeline dos Processos
 
 Como funcionalidade adicional, foi criada uma tabela consolidada de eventos denominada:
 
