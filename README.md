@@ -1,361 +1,762 @@
 # Integração APOL → Power BI
 
-Integração desenvolvida em Python para consumo do Webservice do APOL, tratamento e persistência dos dados em SQLite e posterior consumo pelo Power BI.
+Pipeline de integração desenvolvido em **Python** para consumo dos Webservices do APOL, transformação e persistência dos dados em **SQLite**, disponibilização para o **Power BI** e acompanhamento das movimentações processuais.
 
-O projeto foi estruturado para realizar atualizações incrementais e automáticas dos dados, utilizando o Agendador de Tarefas do Windows.
+O projeto foi estruturado para realizar **atualizações incrementais**, atualização dos detalhes dos processos e execução automatizada por meio do **Agendador de Tarefas do Windows**.
+
+---
+
+## Objetivo
+
+Automatizar a extração e disponibilização de informações do APOL para análise no Power BI, reduzindo a necessidade de extrações manuais e criando uma estrutura de atualização **controlada, rastreável e reutilizável**.
+
+O projeto também permite analisar:
+
+- quantidade de pedidos de marca por ano;
+- situação dos processos;
+- decisões de deferimento e indeferimento;
+- índice de indeferimentos;
+- prazo médio de decisão;
+- prazo médio de deferimento;
+- prazo médio de indeferimento;
+- despachos e movimentações;
+- ocorrências;
+- providências;
+- responsáveis pelas providências;
+- timeline dos processos.
 
 ---
 
 ## Arquitetura
 
 ```text
-┌─────────────────────┐
-│        APOL         │
-│     Webservice      │
-└──────────┬──────────┘
-           │
-           │ HTTP / JSON
-           ▼
-┌─────────────────────┐
-│       Python        │
-│                     │
-│  apol_client.py     │
-│  apol_transform.py  │
-│  apol_sync.py       │
-└──────────┬──────────┘
-           │
-           ▼
-┌─────────────────────┐
-│       SQLite        │
-│      apol.db        │
-│                     │
-│     processos       │
-│ processos_envolvidos│
-└──────────┬──────────┘
-           │
-           │ Python / ODBC
-           ▼
-┌─────────────────────┐
-│      Power BI       │
-│ APOL_integracao.pbix│
-└─────────────────────┘
+┌─────────────────────────────┐
+│            APOL             │
+│       Webservices API       │
+│       REST + SOAP/WSDL      │
+└──────────────┬──────────────┘
+               │
+               │ HTTP / JSON
+               │ SOAP / XML
+               ▼
+┌─────────────────────────────┐
+│           Python            │
+│                             │
+│ apol_client.py              │
+│ apol_transform.py           │
+│ apol_sync.py                │
+│ apol_database.py            │
+│ atualizar_apol.py           │
+└──────────────┬──────────────┘
+               │
+               │ INSERT / UPDATE
+               ▼
+┌─────────────────────────────┐
+│           SQLite            │
+│                             │
+│ processos                   │
+│ processos_envolvidos        │
+│ despachos                   │
+│ ocorrencias                 │
+│ providencias                │
+└──────────────┬──────────────┘
+               │
+               │ Python / ODBC
+               ▼
+┌─────────────────────────────┐
+│          Power BI           │
+│                             │
+│ APOL_integracao.pbix        │
+│                             │
+│ Indicadores                 │
+│ Análises                    │
+│ Timeline                    │
+└─────────────────────────────┘
+```
 
-Fluxo de atualização
+---
+
+# Fluxo de atualização
 
 O processo de atualização segue as seguintes etapas:
 
-1. O Python se conecta ao Webservice do APOL.
-2. Os processos são consultados.
-3. Os dados recebidos são transformados em DataFrames.
-4. Os processos são inseridos ou atualizados no SQLite.
-5. Os envolvidos são associados aos respectivos processos.
-6. Os IDs recebidos são enviados ao APOL para confirmação da sincronização.
-7. A execução é registrada em arquivo de log.
-8. O Power BI utiliza o banco SQLite como fonte de dados.
+```text
+APOL
+  ↓
+Consulta de processos
+  ↓
+Transformação dos dados
+  ↓
+Atualização incremental
+  ↓
+SQLite
+  ↓
+Atualização dos detalhes
+  ↓
+Views
+  ↓
+Power BI
+  ↓
+Atualização dos indicadores
+```
 
+### Etapas
+
+1. O Python se conecta aos Webservices do APOL.
+2. Os processos são consultados.
+3. Os dados recebidos são transformados.
+4. Os processos novos ou alterados são inseridos/atualizados no SQLite.
+5. Os envolvidos são associados aos respectivos processos.
+6. Os IDs sincronizados são enviados ao APOL quando aplicável.
+7. Os detalhes dos processos são consultados.
+8. Despachos, ocorrências e providências são atualizados.
+9. A execução é registrada em log.
+10. O Power BI utiliza o banco SQLite como fonte de dados.
+
+---
+
+# Estrutura do projeto
+
+```text
 projeto2/
 │
 ├── apol_client.py
 ├── apol_database.py
-├── apol_export.py
 ├── apol_sync.py
 ├── apol_transform.py
 ├── apol_views.py
 ├── atualizar_apol.py
-├── configurar_banco.py
-├── validar_banco.py
 ├── powerbi_apol.py
 │
-├── apol.db
-│
-├── logs/
-│   └── apol.log
+├── apol_help.html
+├── help_unificados.html
+├── wsProcessoMarca.wsdl
 │
 ├── tests/
-│   ├── teste_apol.py
-│   ├── teste_apol_dataframe.py
-│   ├── teste_upsert.py
-│   ├── validar_dados.py
-│   └── sincronizar_apol.py
+│   ├── teste.py
+│   └── teste_providencia.py
 │
 ├── apol_BI/
 │   └── APOL_integracao.pbix
 │
 ├── .env
+├── apol.db
 └── README.md
+```
 
-Principais arquivos
-apol_client.py
+> Arquivos como `.env`, `apol.db` e logs locais devem permanecer fora do versionamento público por meio do `.gitignore`.
+
+---
+
+# Principais componentes
+
+## `apol_client.py`
 
 Responsável pela comunicação com o Webservice do APOL.
 
-Funções principais:
+Principais responsabilidades:
 
-autenticação;
-requisição dos processos;
-tratamento de erros HTTP;
-validação da resposta;
-envio da confirmação de sincronização.
-apol_transform.py
+- autenticação;
+- requisições à API;
+- consulta de processos;
+- tratamento de erros HTTP;
+- validação das respostas;
+- comunicação com os serviços disponibilizados pelo APOL.
 
-Responsável pela transformação dos dados recebidos pelo APOL.
+---
 
-São geradas duas estruturas principais:
+## `apol_transform.py`
 
-processos;
-processos envolvidos.
+Responsável pela transformação dos dados recebidos.
 
-Os dados são preparados para armazenamento no SQLite.
+Os dados são organizados em estruturas adequadas para persistência no banco de dados.
 
-apol_sync.py
+Principais entidades:
 
-Responsável pela preparação dos IDs necessários para informar ao APOL quais processos foram sincronizados.
+- processos;
+- processos e envolvidos.
 
-São tratados:
+---
 
-marcas;
-marcas internacionais;
-patentes;
-patentes internacionais.
-apol_database.py
+## `apol_sync.py`
 
-Responsável pelas operações relacionadas ao banco SQLite.
+Responsável pela preparação dos identificadores necessários para sincronização com o APOL.
 
-Banco utilizado:
+São tratados diferentes grupos de processos:
 
-apol.db
-apol_views.py
+- marcas;
+- marcas internacionais;
+- patentes;
+- patentes internacionais.
 
-Responsável pela criação das views utilizadas para facilitar o consumo dos dados.
+---
+
+## `apol_database.py`
+
+Responsável pelas operações de persistência no SQLite.
+
+Entre suas responsabilidades estão:
+
+- criação da estrutura do banco;
+- inserção de registros;
+- atualização de registros;
+- UPSERT;
+- armazenamento dos detalhes dos processos;
+- atualização de despachos;
+- atualização de ocorrências;
+- atualização de providências.
+
+---
+
+## `apol_views.py`
+
+Responsável pela criação das views utilizadas para facilitar o consumo dos dados pelo Power BI.
 
 Views principais:
 
+```text
 vw_processos
 vw_processos_envolvidos
-atualizar_apol.py
+vw_despachos
+vw_ocorrencias
+vw_providencias
+```
+
+---
+
+## `atualizar_apol.py`
 
 É o principal script da automação.
 
-Executa o fluxo:
+Executa o fluxo de atualização:
 
+```text
 Consultar APOL
       ↓
 Transformar dados
       ↓
-Salvar/atualizar SQLite
+Salvar / atualizar SQLite
       ↓
-Preparar IDs
+Sincronizar IDs
       ↓
-Informar sincronização ao APOL
+Atualizar detalhes
       ↓
 Registrar execução
+```
 
-O processo utiliza UPSERT para atualizar registros existentes e inserir novos registros.
+O processo utiliza **UPSERT** para atualizar registros existentes e inserir novos registros.
 
-powerbi_apol.py
+---
 
-Script auxiliar relacionado ao consumo dos dados pelo Power BI.
+## `powerbi_apol.py`
 
-validar_banco.py
+Script responsável pela disponibilização das diferentes estruturas de dados para consumo pelo Power BI.
 
-Utilizado para verificar a integridade do banco.
+São carregadas estruturas relacionadas a:
 
-Exemplos de validações:
+```text
+df_processos
+df_envolvidos
+df_despachos
+df_ocorrencias
+df_providencias
+```
 
-quantidade de processos;
-quantidade de envolvidos;
-existência das tabelas;
-consulta de registros.
-configurar_banco.py
+---
 
-Utilizado para criação/configuração da estrutura do banco SQLite.
+# Banco de dados
 
-Banco de dados
+O projeto utiliza **SQLite** como camada intermediária de persistência.
 
-O projeto utiliza SQLite.
+Banco utilizado localmente:
 
-Arquivo:
-
+```text
 apol.db
-Tabela processos
+```
 
-Armazena informações dos processos, incluindo:
+## Tabela `processos`
 
-ID;
-número do processo;
-marca;
-classe;
-situação;
-titular;
-natureza;
-status;
-especificação;
-país de origem.
-Tabela processos_envolvidos
+Armazena informações principais dos processos.
 
-Relaciona os processos aos envolvidos.
+Entre os campos estão:
 
-Campos:
+- ID;
+- número do processo;
+- marca;
+- classe;
+- situação;
+- titular;
+- natureza;
+- status;
+- especificação;
+- país de origem;
+- data de depósito.
 
+---
+
+## Tabela `processos_envolvidos`
+
+Relaciona processos aos seus respectivos envolvidos.
+
+Campos principais:
+
+```text
 ProcessoId
 EnvolvidoId
 TipoEnvolvido
+```
 
-Atualização incremental
+---
 
-A atualização utiliza UPSERT baseado no campo:
+## Tabela `despachos`
 
+Armazena movimentações e decisões publicadas relacionadas aos processos.
+
+Principais informações:
+
+```text
+ProcessoId
+RPI
+DataRPI
+Despacho
+Descricao
+Complemento
+Pagina
+```
+
+---
+
+## Tabela `ocorrencias`
+
+Armazena ocorrências relacionadas aos processos.
+
+Principais informações:
+
+```text
+ProcessoId
+DataDeGeracao
+Descricao
+Protocolo
+Detalhe
+```
+
+---
+
+## Tabela `providencias`
+
+Armazena providências gerenciais relacionadas aos processos.
+
+Principais informações:
+
+```text
+ProcessoId
+DataGerencial
+DataOficial
+Despacho
+RPI
+Descricao
+Executada
+ResponsavelNome
+```
+
+---
+
+# Atualização incremental
+
+A atualização dos processos utiliza **UPSERT** baseado no identificador:
+
+```text
 Id
+```
 
-Quando um processo ainda não existe no banco:
+Quando um processo ainda não existe:
 
+```text
 INSERT
+```
 
 Quando o processo já existe:
 
+```text
 UPDATE
+```
 
-Dessa forma, a execução não precisa reconstruir todo o banco a cada consulta.
+Essa abordagem evita a reconstrução completa do banco a cada execução.
 
-Configuração das credenciais
+Além disso, os detalhes dos processos são atualizados para manter informações de:
 
-As credenciais do APOL são armazenadas em um arquivo .env.
+- despachos;
+- ocorrências;
+- providências.
+
+---
+
+# Power BI
+
+O dashboard está localizado em:
+
+```text
+apol_BI/APOL_integracao.pbix
+```
+
+O Power BI utiliza os dados armazenados no SQLite para construção das análises.
+
+O modelo foi estruturado para permitir o relacionamento entre:
+
+```text
+Calendario
+     │
+     ▼
+df_processos
+     │
+     ▼
+Timeline
+```
+
+Além das tabelas relacionadas aos detalhes dos processos.
+
+---
+
+# Indicadores
+
+O dashboard apresenta indicadores voltados à análise dos processos de registro de marcas.
+
+### Principais KPIs
+
+- **Pedidos de marca**
+- **Índice de indeferimentos**
+- **Prazo médio de decisão**
+- **Prazo médio de deferimento**
+- **Prazo médio de indeferimento**
+
+Também são apresentadas análises de:
+
+- pedidos por ano;
+- resultado das decisões do INPI;
+- prazo médio por resultado;
+- processos por classe;
+- processos por situação.
+
+---
+
+# Análise das decisões
+
+As movimentações do APOL são classificadas de acordo com o conteúdo dos despachos.
+
+As principais categorias utilizadas são:
+
+```text
+Deferimento
+Indeferimento
+Outros
+```
+
+A análise considera os eventos relevantes para identificar o resultado final do processo.
+
+Para deferimentos, o projeto considera o despacho de **concessão de registro** como referência para o cálculo do prazo final.
+
+O prazo de decisão é calculado a partir da diferença entre:
+
+```text
+Data de depósito
+        ↓
+Data da decisão
+```
+
+---
+
+# Timeline dos Processos
+
+Como funcionalidade adicional, foi criada uma tabela consolidada de eventos denominada:
+
+```text
+Timeline
+```
+
+Ela reúne diferentes tipos de movimentações:
+
+```text
+Depósito
+Despacho
+Ocorrência
+Providência
+```
+
+A timeline permite acompanhar cronologicamente os eventos associados a cada processo.
+
+Também é possível filtrar os eventos por:
+
+- número do processo;
+- marca;
+- tipo de movimentação;
+- responsável pela providência.
+
+---
+
+# Responsáveis
+
+As providências possuem informação de responsável por meio do campo:
+
+```text
+ResponsavelNome
+```
+
+Esse campo é utilizado na Timeline para permitir a análise das providências associadas a cada responsável.
+
+---
+
+# Configuração das credenciais
+
+As credenciais do APOL são armazenadas em um arquivo `.env`.
 
 Exemplo:
 
+```env
 APOL_USUARIO=seu_usuario
 APOL_SENHA=sua_senha
+```
 
-O arquivo .env não deve ser versionado no GitHub.
+O arquivo `.env` **não deve ser publicado no GitHub**.
 
-Recomenda-se adicionar ao .gitignore:
+Também não devem ser publicados:
 
+```text
 .env
 *.db
 logs/
 __pycache__/
+```
 
-Dependências
+---
 
-O projeto utiliza Python e as principais bibliotecas:
+# Dependências
 
+Principais bibliotecas utilizadas:
+
+```text
 requests
 python-dotenv
 pandas
+```
 
 Instalação:
 
+```powershell
 pip install requests python-dotenv pandas
+```
 
-Execução manual
+---
 
-Para executar uma atualização:
+# Execução manual
 
+Para executar uma atualização manual:
+
+```powershell
 py atualizar_apol.py
+```
 
-Uma execução sem alterações apresenta:
+Quando não existem novos processos ou alterações, a execução pode apresentar:
 
-Processos recebidos:
-0
+```text
+Processos recebidos: 0
 
 Nenhum processo novo ou alterado.
 Banco permanece inalterado.
+```
 
-Quando existem dados para processamento, os processos são gravados/atualizados no banco e a sincronização é informada ao APOL.
+Mesmo nesse cenário, os detalhes dos processos armazenados podem ser atualizados.
 
-Automação
+---
 
-A atualização é automatizada pelo:
+# Automação
 
-Agendador de Tarefas do Windows
+A atualização pode ser executada automaticamente utilizando o:
 
-Configuração atual:
+**Windows Task Scheduler — Agendador de Tarefas do Windows**
 
-Frequência: diária
+O fluxo automatizado executa o script:
 
-O Agendador executa:
-
+```text
 atualizar_apol.py
+```
 
-O resultado da execução pode ser acompanhado através do arquivo:
+A configuração pode ser realizada para execução periódica, por exemplo:
 
-logs/apol.log
+```text
+Frequência: diária
+```
 
-Logs
+Os resultados podem ser acompanhados pelos logs locais da aplicação.
 
-O log registra:
+---
 
-início da execução;
-quantidade de processos recebidos;
-alterações realizadas;
-resposta do APOL;
-término da execução;
-duração do processo;
-erros encontrados.
+# Logs
 
-Power BI
+Os logs são utilizados para acompanhar a execução da integração.
 
-O dashboard está localizado em:
+Entre as informações registradas estão:
 
-apol_BI/APOL_integracao.pbix
+- início da execução;
+- quantidade de processos recebidos;
+- processos inseridos;
+- processos atualizados;
+- atualização dos detalhes;
+- resposta do APOL;
+- duração da execução;
+- erros encontrados.
 
-O Power BI utiliza os dados armazenados no SQLite.
+---
 
-A conexão foi configurada através de uma fonte de dados compatível com o ambiente local.
+# Testes
 
-O fluxo de atualização é:
+O projeto possui scripts de teste relacionados à integração e ao processamento das informações.
 
-APOL
- ↓
-SQLite atualizado
- ↓
-Power BI
- ↓
-Atualizar
+Entre os cenários testados estão:
 
-A atualização do banco é automática. O Power BI Desktop precisa ser atualizado para carregar os dados modificados no banco.
+- comunicação com o Webservice;
+- autenticação;
+- recebimento dos processos;
+- transformação dos dados;
+- persistência no SQLite;
+- atualização incremental;
+- sincronização;
+- atualização de providências;
+- criação das views;
+- consumo pelo Power BI.
 
-Validação da integração
+---
 
-A integração foi testada em diferentes etapas:
+# Validação da integração
 
-comunicação com o Webservice;
-autenticação;
-recebimento dos processos;
-transformação dos dados;
-criação das tabelas SQLite;
-criação das views;
-atualização incremental;
-sincronização dos IDs com o APOL;
-execução automática pelo Windows;
-geração de logs;
-leitura dos dados pelo Power BI.
+A integração foi validada em diferentes etapas:
 
-Tecnologias
-Python
-Requests
-Pandas
+```text
+Webservice
+    ↓
+Autenticação
+    ↓
+Consulta
+    ↓
+Transformação
+    ↓
 SQLite
-SQL
+    ↓
+Atualização incremental
+    ↓
+Detalhamento dos processos
+    ↓
+Views
+    ↓
 Power BI
-DAX
-PowerShell
-Windows Task Scheduler
-Webservice REST
+```
 
-Objetivo
+Também foi validado o cenário de execução sem novos processos, garantindo que o banco não seja reconstruído desnecessariamente.
 
-O projeto tem como objetivo automatizar a extração e disponibilização de informações do APOL para análise no Power BI, reduzindo a necessidade de extração manual dos dados e criando uma estrutura de atualização controlada e rastreável.
+---
 
-Observações
+# Tecnologias
 
-Este projeto utiliza credenciais de acesso ao Webservice do APOL. Informações de autenticação, bancos locais e arquivos de configuração contendo dados sensíveis não devem ser publicados em repositórios públicos.
+- **Python**
+- **Requests**
+- **Pandas**
+- **SQLite**
+- **SQL**
+- **Power BI**
+- **DAX**
+- **PowerShell**
+- **SOAP**
+- **REST**
+- **XML**
+- **JSON**
+- **WSDL**
+- **Windows Task Scheduler**
 
-Para utilização em outro ambiente, será necessário configurar:
+---
 
-credenciais do APOL;
-dependências Python;
-banco SQLite;
-conexão do Power BI;
-Agendador de Tarefas.
+# Arquivos de apoio
 
+O projeto contém arquivos relacionados à documentação e integração com os serviços do APOL:
+
+```text
+apol_help.html
+help_unificados.html
+wsProcessoMarca.wsdl
+```
+
+Esses arquivos auxiliam na compreensão dos serviços e estruturas utilizadas na integração.
+
+---
+
+# Segurança
+
+Este projeto utiliza autenticação para acesso aos serviços do APOL.
+
+Por questões de segurança, **credenciais, bancos locais, logs e informações de configuração não devem ser publicados em repositórios públicos**.
+
+Antes de publicar o projeto, certifique-se de que arquivos como:
+
+```text
+.env
+apol.db
+logs/
+```
+
+estão devidamente protegidos pelo `.gitignore`.
+
+---
+
+# Resultado
+
+O projeto demonstra a construção de um pipeline completo de dados:
+
+```text
+             APOL
+              │
+              ▼
+       Webservice / SOAP
+              │
+              ▼
+           Python
+              │
+       ┌──────┴──────┐
+       │             │
+       ▼             ▼
+ Transformação   Atualização
+       │         Incremental
+       └──────┬──────┘
+              ▼
+           SQLite
+              │
+              ▼
+          Power BI
+              │
+       ┌──────┼──────────┐
+       ▼      ▼          ▼
+    KPIs   Análises   Timeline
+```
+
+A solução integra **engenharia de dados, automação, banco de dados, análise e visualização**, transformando dados operacionais do APOL em informações estruturadas para suporte à análise de processos de registro de marcas.
+
+---
+
+## Próximos passos
+
+Possíveis evoluções do projeto:
+
+- publicação do dashboard em ambiente Power BI Service;
+- automação do refresh do Power BI;
+- expansão dos indicadores;
+- monitoramento automatizado das execuções;
+- tratamento de novos tipos de processos;
+- ampliação da análise histórica;
+- integração com outras fontes de dados.
+
+---
+
+## Autor
+
+**Gustavo Evangelista**
+
+Projeto desenvolvido como aplicação prática de conhecimentos em:
+
+**Python · SQL · SQLite · Power BI · DAX · APIs · Automação · Análise de Dados**
